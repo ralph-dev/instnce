@@ -13,7 +13,7 @@
 </br>
 <b>Key Features (Final)</b></br>
 1. Integrate with GitHub to manage pull requests within the new tab page. (Might do a cross Github/Jira Integartion through our server. </br>
-2. Have more of a <i>write</i> ability with creating JIRA Tickets from the screen. (Maybe even more complex things like Retrospectives can be tackled here -- Will require research before committing to it.)
+2. Have more of a <i>write</i> ability with creating JIRA Tickets from the screen. (Maybe even more complex things like Retrospectives can be tackled here -- Will require research before committing to it.) </br>
 </br>
 <b>Technologies:</b></br>
 1. ReactJS </br>
