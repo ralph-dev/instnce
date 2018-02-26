@@ -16,15 +16,15 @@
 2. Have more of a <i>write</i> ability with creating JIRA Tickets from the screen. (Maybe even more complex things like Retrospectives can be tackled here -- Will require research before committing to it.) </br>
 </br>
 <b>Technologies:</b></br>
-1. ReactJS </br>
-2. Redux </br>
-3. Github API </br>
-4. Jira API </br>
-5. DarkSky Weather API </br>
+1. ReactJS (Front-End) </br>
+2. Redux (State Management) </br>
+3. Github API (Data Input) </br>
+4. Jira API (Data I/O)</br>
+5. DarkSky Weather API (Data Input) </br>
 </br>
 <b>Top 5 Technical Challenges:</b></br>
-1. Learning React </br>
-2. Learning Redux (And possibly <i>Flux React</i>) </br>
-3. Integerating with apis </br>
-4. Integrating a Github and Jira Connection </br>
-5. Making into Chrome extenstion </br>
+1. Learning React (First Time!) </br>
+2. Learning Redux (And possibly <i>Flux React</i>) (First Time!)</br>
+3. Integerating with apis (First Time!) </br>
+4. Integrating a Github and Jira Connection (Will be complicated to control the logic behind the scenes) </br>
+5. Making into Chrome extenstion (Not sure how to display onNewTab?)</br>
