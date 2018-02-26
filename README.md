@@ -2,9 +2,9 @@
 
 <b>Project Title:</b> Instnce
 </br>
-<b>Team Members:</b>Nafees Rawji, Ralph Maamari
+<b>Team Members:</b> Nafees Rawji, Ralph Maamari
 </br>
-<b>Description:</b> A new tab page which displays contexual information important to the user. 
+<b>Description:</b> A new tab page which displays contexual information important to the user to increase developer velocity. 
 </br>
 <b>Key Features (Beta):</b>
 1. Display weather </br>
@@ -13,6 +13,7 @@
 </br>
 <b>Key Features (Final)</b></br>
 1. Integrate with GitHub to manage pull requests within the new tab page. (Might do a cross Github/Jira Integartion through our server.
+2. Have more of a <i>write</i> ability with creating JIRA Tickets from the screen. (Maybe even more complex things like Retrospectives can be tackled here -- Will require research before committing to it.)
 </br>
 <b>Technologies:</b></br>
 1. ReactJS </br>
