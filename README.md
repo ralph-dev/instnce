@@ -6,7 +6,7 @@
 </br>
 **Description:** A new tab page which displays contexual information important to the user. 
 </br>
-**Key Features (Beta)**:
+**Key Features (Beta):**
 1. Display weather </br>
 2. Display current time </br>
 3. Display Jira Tickets </br>
