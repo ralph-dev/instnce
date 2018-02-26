@@ -12,9 +12,9 @@
 3. Display Jira Tickets </br>
 </br>
 <b>Key Features (Final)</b>
-1. Integrate with GitHub to manage pull requests within the new tab page
+1. Integrate with GitHub to manage pull requests within the new tab page. (Might do a cross Github/Jira Integartion through our server.
 </br>
-<b>Technologies:</b>
+<b>Technologies:</b></br>
 1. ReactJS </br>
 2. Redux </br>
 3. Github API </br>
@@ -25,5 +25,5 @@
 1. Learning React </br>
 2. Learning Redux </br>
 3. Integerating with apis </br>
-4. Integrating with GitHub </br>
+4. Integrating a Github and Jira Connection </br>
 5. Making into Chrome extenstion </br>
