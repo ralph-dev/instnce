@@ -11,7 +11,7 @@
 2. Display current time </br>
 3. Display Jira Tickets </br>
 </br>
-<b>Key Features (Final)</b>
+<b>Key Features (Final)</b></br>
 1. Integrate with GitHub to manage pull requests within the new tab page. (Might do a cross Github/Jira Integartion through our server.
 </br>
 <b>Technologies:</b></br>
@@ -21,9 +21,9 @@
 4. Jira API </br>
 5. DarkSky Weather API </br>
 </br>
-<b>Top 5 Technical Challenges:</b>
+<b>Top 5 Technical Challenges:</b></br>
 1. Learning React </br>
-2. Learning Redux </br>
+2. Learning Redux (And possibly <i>Flux React</i>) </br>
 3. Integerating with apis </br>
 4. Integrating a Github and Jira Connection </br>
 5. Making into Chrome extenstion </br>
