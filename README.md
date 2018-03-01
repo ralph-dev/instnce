@@ -2,7 +2,7 @@
 
 <b>Project Title:</b> Instnce
 </br>
-<b>Team Members:</b> Nafees Rawji, Ralph Maamari
+<b>Team Members:</b> Nafees Rawji, Ralph Maamari, Simon Ngo
 </br>
 <b>Description:</b> A new tab page which displays contexual information important to the user to increase developer velocity. 
 </br>
