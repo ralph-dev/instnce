@@ -1,10 +1,10 @@
 {
   "short_name": "instce",
   "name": "instce",
-  "start_url": "./index.html",
   "description": "Currently replaces new tab with 'Hello World!'",
   "version": "0.1",
+  "manifest_version": 2,
   "chrome_url_overrides": {
-    "newtab": "instnce.html"
+    "newtab": "index.html"
   }
 }
