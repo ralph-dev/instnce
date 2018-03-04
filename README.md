@@ -4,7 +4,7 @@
 </br>
 <b>Team Members:</b> Nafees Rawji, Ralph Maamari, Simon Ngo
 </br>
-<b>Description:</b> A new tab page which displays contexual information important to the user to increase developer velocity. 
+<b>Description:</b> A new tab page which displays contexual information important to the user to increase developer velocity.
 </br>
 <b>Key Features (Beta):</b>
 1. Display weather </br>
