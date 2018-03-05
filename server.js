@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require("morgan");
 
 const axios = require('axios');
+
 const weatherApi = axios.create({
     baseURL: "https://api.darksky.net/forecast/",
     params: {
