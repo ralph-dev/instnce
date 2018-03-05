@@ -56,6 +56,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel server react",
+    "deploy": "npm-run-all build server",
     "server": "node server.js",
     "react": "node scripts/start.js",
     "build": "node scripts/build.js",
