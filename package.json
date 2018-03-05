@@ -51,11 +51,13 @@
     "axios": "^0.18.0",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
-    "react-redux": "^5.0.7"
+    "react-redux": "^5.0.7",
+    "npm-run-all": "^4.1.2"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "npm-run-all --parallel server react",
     "server": "node server.js",
+    "react": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },

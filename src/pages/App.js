@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
+import {bindActionCreators} from "redux";
+import {getWeather} from "../redux/actions/weatherActions";
+import {connect} from "react-redux";
 
 class App extends Component {
+
+    componentWillMount() {
+        this.props.getWeather();
+    }
+
   render() {
     return (
       <div className="App">
@@ -17,4 +25,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+});
+
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getWeather
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);
