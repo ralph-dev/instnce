@@ -11,3 +11,30 @@ html, body {
     background-color: lightskyblue;
   }
 }
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+  display: grid;
+  grid-template: ". w ." "b b b";
+  grid-template-rows: 1fr 3fr;
+}
+
+.weather {
+  grid-area: w;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weather-icon {
+  width: 100px;
+}
+
+.temperature {
+  color: white;
+  font-size: 4em;
+  margin: 20px;
+}

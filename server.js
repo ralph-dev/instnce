@@ -9,7 +9,7 @@ const weatherApi = axios.create({
     baseURL: "https://api.darksky.net/forecast/",
     params: {
         lang: "en",
-        exclude: ["hourly", "minutely", "daily"]
+        exclude: ["hourly", "minutely"]
     }
 });
 
@@ -28,7 +28,7 @@ app.get('/getWeather', async (req, res) => {
     } else {
         try {
             let doc = await weatherApi(url);
-            res.send(doc.data.currently);
+            res.send(doc.data);
         } catch (err) {
             console.log(err);
             res.status(500).send("Could not get data");
