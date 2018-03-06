@@ -29,7 +29,6 @@ app.get('/getWeather', async (req, res) => {
     } else {
         try {
             let doc = await weatherApi(url);
-            console.log(doc);
             res.send(doc.data);
         } catch (err) {
             console.log(err);

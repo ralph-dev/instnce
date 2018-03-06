@@ -1,15 +1,35 @@
 import axios from "../../networking/axios";
 
-export const WEATHER = "FETCHING_WEATHER";
+export const FETCH_WEATHER = "FETCHING_WEATHER";
+export const LOCATION_ERROR = "LOCATION_ERROR";
 
-export function getWeather() {
-    // todo get location
+function couldNotGetLocation(err) {
+    console.log(err);
+    return {
+        type: LOCATION_ERROR
+    }
+}
+
+export function getLocationAndWeather() {
+    return (dispatch) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position => dispatch(getWeather(position.coords.latitude, position.coords.longitude))),
+                (err) => dispatch(couldNotGetLocation(err)));
+        } else {
+            alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+        }
+    };
+}
+
+export function getWeather(lat, long) {
+    console.log(lat, long);
     let promise = axios("/getWeather", {params: {
-            lat: 0,
-            long: 0
+            lat: lat,
+            long: long
         }});
     return {
-        type: WEATHER,
+        type: FETCH_WEATHER,
         payload: promise
     }
+
 }

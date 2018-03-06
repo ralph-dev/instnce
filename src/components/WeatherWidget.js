@@ -13,7 +13,7 @@ import partlyCloudyDay from '../media/weather-icons/PartlyCloudyDay.svg';
 import partlyCloudyNight from '../media/weather-icons/PartlyCloudyNight.svg';
 
 
-import {getWeather} from "../redux/actions/weatherActions";
+import {getLocationAndWeather} from "../redux/actions/weatherActions";
 import LoadingIcon from "./LoadingIcon";
 
 const icons = {
@@ -30,11 +30,6 @@ const icons = {
 };
 
 class Weather extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     componentWillMount() {
         this.props.getWeather();
     }
@@ -56,7 +51,7 @@ class Weather extends Component {
         } else {
             return (
                 <div className="weather">
-                    <object aria-label="weather" className="weather-icon" data={partlyCloudyDay}/>
+                    <object aria-label="weather" className="weather-icon" data={icons[this.props.currently.icon]}/>
                     <h2 className={"temperature"}>{Math.round(this.props.currently.temperature)}°</h2>
                     <h5 className={"subheading"}>{this.props.currently.summary}</h5>
                     <h5 className={"subheading"}>{Math.round(this.props.daily.temperatureHigh)}° / {Math.round(this.props.daily.temperatureLow)}°</h5>
@@ -74,7 +69,7 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getWeather
+    getWeather: getLocationAndWeather
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Weather);
