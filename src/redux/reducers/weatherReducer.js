@@ -1,14 +1,15 @@
 import {WEATHER} from "../actions/weatherActions";
 
 const default_state = {
-    weather: {},
+    error: false,
+    weather: null,
 };
 
 export default function (state = default_state, action) {
     switch (action.type) {
         case WEATHER:
-            console.log(action.payload.data);
-            return {...state, weather: action.payload.data};
+            console.log(action.payload);
+            return {...state, weather: action.payload.data, error: (action.payload.status !== 200)};
         default:
             return state;
     }
