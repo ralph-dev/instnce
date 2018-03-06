@@ -1,0 +1,40 @@
+.weather {
+  width: 230px;
+  padding: 20px;
+  height: 230px;
+  margin: 20px auto 0;
+  grid-area: w;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.weather .error-icon {
+  font-size: 5em;
+  color: $gray;
+  margin: 0 0 10px;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.temperature {
+  font-family: 'Mina', "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 2.5em;
+  margin: 15px 0 0 4px;
+}
+
+.weather .subheading {
+  color: $gray;
+  font-weight: 300;
+  margin: 5px auto;
+  font-size: 1em;
+}
