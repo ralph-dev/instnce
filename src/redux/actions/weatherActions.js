@@ -16,7 +16,7 @@ export function getLocationAndWeather() {
             navigator.geolocation.getCurrentPosition((position => dispatch(getWeather(position.coords.latitude, position.coords.longitude))),
                 (err) => dispatch(couldNotGetLocation(err)));
         } else {
-            alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+            dispatch(couldNotGetLocation(new Error("Location Not Enabled")));
         }
     };
 }
