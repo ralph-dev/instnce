@@ -1,2 +1,2 @@
 [config]
-command = npm run deploy
+command = npm install && npm run deploy
