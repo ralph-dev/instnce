@@ -56,10 +56,9 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "npm-run-all --parallel server react",
-    "deploy": "npm-run-all build server",
+    "dev": "npm-run-all --parallel server react",
     "server": "node server.js",
-    "react": "node scripts/start.js",
+    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
