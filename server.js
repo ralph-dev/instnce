@@ -39,4 +39,8 @@ app.get('/getWeather', async (req, res) => {
 });
 
 
+app.get("/", (req, res) => {
+   res.send("Welcome to instnce server")
+});
+
 app.listen(8080, () => console.log("Listening on port 8000"));
