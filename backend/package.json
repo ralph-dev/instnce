@@ -1,0 +1,23 @@
+{
+  "name": "instnce-backend",
+  "version": "0.1.0",
+  "description": "The backend for instnce webapp",
+  "main": "server.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nafees-rawji/instnce.git"
+  },
+  "author": "Instnce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nafees-rawji/instnce/issues"
+  },
+  "homepage": "https://github.com/nafees-rawji/instnce#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "cors": "^2.8.4",
+    "axios": "^0.18.0"
+  }
+}

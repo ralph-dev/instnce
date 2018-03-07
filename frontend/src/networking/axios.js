@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 const config = {
-    baseURL: "http://localhost:8000"
+    baseURL: "http://localhost:8080"
 };
 
 const instance = axios.create(config);
