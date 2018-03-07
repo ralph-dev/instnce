@@ -106,6 +106,6 @@
     "extends": "react-app"
   },
   "engines": {
-    "node": "8.x"
+    "node": "8.9.4"
   }
 }
