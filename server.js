@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 const morgan = require("morgan");
+const path = require("path");
 
 const axios = require('axios');
 
@@ -15,7 +16,7 @@ const weatherApi = axios.create({
 });
 
 // serve build statically because for simple testing
-app.use(express.static("./build"));
+app.use(express.static(path.join(__dirname, "/build")));
 app.use(morgan('tiny'));
 app.use(cors());
 
