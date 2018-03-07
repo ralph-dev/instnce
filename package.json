@@ -57,8 +57,8 @@
   },
   "scripts": {
     "dev": "npm-run-all --parallel server react",
-    "server": "node server.js",
-    "start": "node scripts/start.js",
+    "start": "node server.js",
+    "react": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
