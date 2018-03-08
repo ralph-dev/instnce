@@ -18,8 +18,6 @@ const weatherApi = axios.create({
     }
 });
 
-// serve build statically because for simple testing
-// app.use(express.static(path.join(__dirname, "/build")));
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'frontend', 'build')));
@@ -45,7 +43,7 @@ app.get('/getWeather', async (req, res) => {
 
 
 app.get('/', (req, res) => {
-    res.send('Welcome to instnce server');
+    res.send('Welcome to Instnce server');
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
