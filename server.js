@@ -42,7 +42,7 @@ app.get('/getWeather', async (req, res) => {
 
 
 app.get("/", (req, res) => {
-   res.send("Welcome to instnce server")
+   res.send("Welcome to instnce server");
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
