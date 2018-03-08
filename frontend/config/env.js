@@ -59,6 +59,7 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
+const endpoint =  (process.env.NODE_ENV === "production") ? "https://instnce.azurewebsites.net/" : "http://localhost:8080";
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
@@ -77,7 +78,7 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
-        API_ENDPOINT: process.env.API_ENDPOINT || "http://localhost:8080"
+        API_ENDPOINT: endpoint
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
