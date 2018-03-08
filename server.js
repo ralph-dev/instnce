@@ -6,6 +6,8 @@ const path = require("path");
 
 const axios = require('axios');
 
+const port = process.env.port || 8080;
+
 const weatherApi = axios.create({
     baseURL: "https://api.darksky.net/forecast/",
     params: {
@@ -43,4 +45,4 @@ app.get("/", (req, res) => {
    res.send("Welcome to instnce server")
 });
 
-app.listen(8080, () => console.log("Listening on port 8080"));
+app.listen(port, () => console.log("Listening on port 8080"));
