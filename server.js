@@ -21,7 +21,7 @@ const weatherApi = axios.create({
 // app.use(express.static(path.join(__dirname, "/build")));
 app.use(morgan('tiny'));
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, "frontend", "build")));
 
 app.get('/getWeather', async (req, res) => {
     let lat = req.query.lat;
@@ -45,4 +45,4 @@ app.get("/", (req, res) => {
    res.send("Welcome to instnce server")
 });
 
-app.listen(port, () => console.log("Listening on port 8080"));
+app.listen(port, () => console.log(`Listening on port ${port}`));
