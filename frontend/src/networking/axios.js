@@ -5,7 +5,8 @@ let baseURL = process.env.API_ENDPOINT || "http://localhost:8080";
 console.log(process.env.API_ENDPOINT, baseURL);
 
 const config = {
-    baseURL: baseURL
+    baseURL: baseURL,
+    withCredentials: true
 };
 
 const instance = axios.create(config);
