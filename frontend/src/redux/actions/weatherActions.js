@@ -23,7 +23,7 @@ export function getLocationAndWeather() {
 
 export function getWeather(lat, long) {
     console.log(lat, long);
-    let promise = axios("/getWeather", {params: {
+    let promise = axios("/weather", {params: {
             lat: lat,
             long: long
         }});

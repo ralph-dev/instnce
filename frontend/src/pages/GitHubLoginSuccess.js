@@ -6,13 +6,13 @@ import {githubLogin} from "../redux/actions/github";
 
 class App extends Component {
     render() {
-    return (
-      <div className="App">
-          <Weather/>
-          <button onClick={this.props.githubLogin}>Login To Github</button>
-      </div>
-    );
-  }
+        return (
+            <div className="App">
+                <Weather/>
+                <button onClick={this.props.githubLogin}>Login To Github</button>
+            </div>
+        );
+    }
 }
 const mapStateToProps = state => ({
 
