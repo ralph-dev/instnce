@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import Weather from "../components/WeatherWidget";
 import {bindActionCreators} from "redux";
+import qs from 'query-string';
 import {connect} from "react-redux";
-import {githubLogin} from "../redux/actions/github";
+import LoadingIcon from "../components/LoadingIcon";
 
-class App extends Component {
+class GitHubLoginSuccess extends Component {
+    componentWillMount() {
+        let params = this.props.location.search;
+        console.log(qs.parse(params));
+    }
+
     render() {
         return (
-            <div className="App">
-                <Weather/>
-                <button onClick={this.props.githubLogin}>Login To Github</button>
+            <div id="github-success">
+                <LoadingIcon color={"#fff"} width={250} height={250}/>
             </div>
         );
     }
 }
+
 const mapStateToProps = state => ({
 
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    githubLogin
+
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default connect(mapStateToProps, mapDispatchToProps) (GitHubLoginSuccess);

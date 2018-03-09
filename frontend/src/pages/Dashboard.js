@@ -4,7 +4,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {githubLogin} from "../redux/actions/github";
 
-class App extends Component {
+class Dashboard extends Component {
     render() {
     return (
       <div className="App">
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     githubLogin
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);
