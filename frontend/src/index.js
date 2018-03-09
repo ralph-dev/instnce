@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './css/main.scss';
+import Dashboard from './pages/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 import promiseMiddleware from "redux-promise";
 import ReduxThunk from 'redux-thunk';
@@ -9,12 +11,7 @@ import {Provider} from "react-redux";
 import {ConnectedRouter, routerMiddleware} from "react-router-redux";
 import createHistory from 'history/createBrowserHistory';
 import {Route, Switch} from "react-router";
-
-import Dashboard from './pages/Dashboard';
 import GitHubLoginSuccess from "./pages/GitHubLoginSuccess";
-
-import 'normalize.css';
-import './css/main.scss';
 
 const history = createHistory();
 

@@ -2,28 +2,24 @@ import React, { Component } from 'react';
 import Weather from "../components/WeatherWidget";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import GitHub from "../components/GitHubWidget";
+import {githubLogin} from "../redux/actions/github";
 
 class Dashboard extends Component {
     render() {
     return (
-      <div id="dashboard">
+      <div className="App">
           <Weather/>
-          <div className="content">
-              <GitHub/>
-              {/*<GitHub/>*/}
-          </div>
+          <button onClick={this.props.githubLogin}>Login To Github</button>
       </div>
     );
   }
 }
-
 const mapStateToProps = state => ({
 
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+    githubLogin
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);

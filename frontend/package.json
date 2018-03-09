@@ -55,9 +55,7 @@
     "react-router": "^4.2.0",
     "react-router-redux": "^5.0.0-alpha.9",
     "history": "^4.7.2",
-    "query-string": "^5.1.0",
-    "js-cookie": "^2.2.0",
-    "normalize.css": "^8.0.0"
+    "query-string": "^5.1.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
