@@ -8,7 +8,6 @@ const default_state = {
 export default function (state = default_state, action) {
     switch (action.type) {
         case FETCH_WEATHER:
-            console.log(action.payload);
             return {...state, weather: action.payload.data, error: (action.payload.status !== 200)};
         case LOCATION_ERROR:
             console.log("Could not get Location");
