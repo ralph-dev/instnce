@@ -1,0 +1,26 @@
+#dashboard {
+  height: 100%;
+  display: grid;
+  grid-template: "w" "c";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: 80px;
+  text-align: center;
+}
+
+.content {
+  display: grid;
+  grid-template: "g j";
+  grid-area: c;
+  grid-gap: 0 40px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.widget {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.widget .title {
+  color: $dark-gray;
+}
