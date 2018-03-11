@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Weather from "../components/WeatherWidget";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import GitHub from "../components/GitHub";
+import GitHub from "../components/GitHubWidget";
 
 class Dashboard extends Component {
     render() {
@@ -11,7 +11,7 @@ class Dashboard extends Component {
           <Weather/>
           <div className="content">
               <GitHub/>
-              <GitHub/>
+              {/*<GitHub/>*/}
           </div>
       </div>
     );

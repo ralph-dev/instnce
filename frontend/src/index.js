@@ -10,8 +10,8 @@ import {ConnectedRouter, routerMiddleware} from "react-router-redux";
 import createHistory from 'history/createBrowserHistory';
 import {Route, Switch} from "react-router";
 
-import GitHubLoginSuccess from "./pages/GitHubLoginSuccess";
 import Dashboard from './pages/Dashboard';
+import GitHubLoginSuccess from "./pages/GitHubLoginSuccess";
 
 import 'normalize.css';
 import './css/main.scss';
