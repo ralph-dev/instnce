@@ -17,7 +17,8 @@ app.use(morgan('tiny'));
 app.use(cors({
     origin: function (origin, callback) {
         callback(null, true);
-    }, credentials : true
+    }, credentials : true,
+    optionsSuccessStatus: 200
 }));
 // app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 

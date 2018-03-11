@@ -24,3 +24,16 @@
 .widget .title {
   color: $dark-gray;
 }
+
+.error-icon {
+  font-size: 5em;
+  color: $gray;
+  margin: 0 0 10px;
+}
+
+.subheading {
+  color: $gray;
+  font-weight: 300;
+  margin: 5px auto;
+  font-size: 1em;
+}
