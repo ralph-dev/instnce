@@ -35,7 +35,6 @@ class Weather extends Component {
     }
 
     render() {
-        console.log(this.props.daily);
         if (this.props.error) {
             return (
             <div className="weather">
@@ -45,7 +44,7 @@ class Weather extends Component {
         } else if(this.props.currently === null || this.props.daily === null) {
             return (
             <div className="weather">
-                <LoadingIcon/>
+                <LoadingIcon width={100} height={100} color={"#4c8fc3"}/>
                 <h5 className="subheading">Loading Weather</h5>
             </div>);
         } else {

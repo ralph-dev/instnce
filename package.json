@@ -20,13 +20,18 @@
   },
   "homepage": "https://github.com/nafees-rawji/instnce#readme",
   "dependencies": {
-    "express": "^4.16.2",
-    "morgan": "^1.9.0",
-    "cors": "^2.8.4",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0"
+    "eslint-plugin-import": "^2.9.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-github2": "^0.1.11"
   },
   "eslintConfig": {
     "extends": "airbnb-base",
@@ -43,7 +48,10 @@
         "error",
         "never"
       ],
-      "indent": ["error", 4],
+      "indent": [
+        "error",
+        4
+      ],
       "no-console": "off"
     }
   },
