@@ -21,6 +21,7 @@ class GitHub extends React.Component {
 
 
     getBody() {
+        console.log(this.props.repos);
         if (this.props.repo === null) {
             return (
                 <div id="github-widget" className={"widget"}>
