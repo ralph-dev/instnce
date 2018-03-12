@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {bindActionCreators} from "redux";
 import qs from 'query-string';
 import {connect} from "react-redux";
-import LoadingIcon from "../components/LoadingIcon";
+import LoadingIcon from "../../components/LoadingIcon";
 
 class GitHubLoginSuccess extends Component {
     componentWillMount() {

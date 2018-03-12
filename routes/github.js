@@ -18,4 +18,28 @@ const githubAuth = axios.create({
 });
 
 
+
+router.get('/repos/:owner/:repo', async (req, res) => {
+    let {owner, repo} = req.params;
+    if (owner && repo) {
+        try {
+            let githubRes = await github(`/repos/${owner}/${repo}/pulls`, {
+                headers: {
+                    Authorization: `token ${req.key}`
+                }
+            });
+            if (githubRes.status !== 200) {
+                res.stats(githubRes.status).send();
+            } else {
+                res.send(githubRes.data);
+            }
+        } catch (err) {
+            console.log(err);
+            res.status(500).send(err);
+        }
+
+    } else {
+        res.status(404).send("Could not find route make sure you included owner and repo");
+    }
+});
 module.exports = router;

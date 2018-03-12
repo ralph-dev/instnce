@@ -3,6 +3,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: -moz-available;          /* WebKit-based browsers will ignore this. */
+  height: -webkit-stretch;  /* Mozilla-based browsers will ignore this. */
+  height: stretch;
+  overflow-y: hidden;
+  //width: 350px;
+  transition: 1s;
+}
+
+#github-widget:focus, #github-widget:active, #github-widget:hover {
+  overflow-y: auto;
 }
 
 #github-widget.login {
@@ -11,7 +21,7 @@
 
 #github-widget .login-button {
   color: white;
-  background-color: #00c900;
+  background-color: $login-green-bright;
   padding: 12px;
   display: flex;
   flex-direction: row;
@@ -28,11 +38,43 @@
 }
 
 #github-widget .login-button:hover {
-  background-color: #00df00;
+  background-color: $login-green-bright;
 }
 
 #github-widget object {
   width: 30px;
   height: 30px;
   margin-right: 10px;
+}
+
+.repo-list {
+  padding: 0 10px;
+  list-style: none;
+}
+
+.github-repo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: left;
+  border-bottom: solid 1px $gray;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.github-repo:last-child {
+  border-bottom: none;
+}
+
+.repo-name {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  max-height: 1.5em;
+  line-height: 1.5em;
+  margin: 0;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1em;
+  text-overflow: ellipsis;
 }

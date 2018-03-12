@@ -9,11 +9,16 @@
 }
 
 .content {
-  display: grid;
+  display: inline-grid;
   grid-template: "g j";
   grid-area: c;
   grid-gap: 0 40px;
-  grid-template-columns: 1fr 1fr;
+  transition: 1s;
+  grid-template-columns: 350px 1fr;
+}
+
+.expanded {
+  grid-template-columns: 1fr 350px;
 }
 
 .widget {
