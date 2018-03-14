@@ -56,9 +56,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="Links">
-                    {this.state.links.map(link =>
-                        <Link value={link} />
-                    )}
+                    {this.state.links.map(link => <Link value={link} />)}
                 </div>
                 <div className="AddLink">
                     <form>
