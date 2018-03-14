@@ -32,9 +32,12 @@ class App extends Component {
 
     constructor(props) {
         super(props);
+
+        let storage = JSON.parse(localStorage.getItem("links"));
+
         this.state = {
             value: '',
-            links: []
+            links: JSON.parse(localStorage.getItem("links"))
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -50,6 +53,7 @@ class App extends Component {
         let newLinks = this.state.links.slice();
         newLinks.push(this.state.value);
         this.setState({ links: newLinks });
+        localStorage.setItem("links", JSON.stringify(newLinks));
     }
 
     render() {
