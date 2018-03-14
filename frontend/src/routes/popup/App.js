@@ -22,7 +22,7 @@ class Link extends Component {
         return (
             <div>
                 <p className="linkData">{this.props.value}</p>
-                <button onClick={this.updateClipboard}>Save Link</button>
+                <button onClick={this.updateClipboard}>Copy Link</button>
             </div>
         );
     }
