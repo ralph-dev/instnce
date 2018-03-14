@@ -33,8 +33,6 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        let storage = JSON.parse(localStorage.getItem("links"));
-
         this.state = {
             value: '',
             links: JSON.parse(localStorage.getItem("links"))
