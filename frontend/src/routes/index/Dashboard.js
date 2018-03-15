@@ -3,6 +3,7 @@ import Weather from "../../components/WeatherWidget";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import GitHub from "../../components/github/GitHubWidget";
+import Notes from "../../components/NotesWidget"
 
 class Dashboard extends Component {
     getContentClassNames() {
@@ -20,6 +21,7 @@ class Dashboard extends Component {
           <div className={this.getContentClassNames()}>
               <GitHub/>
               {/*<GitHub/>*/}
+              <Notes/>
           </div>
       </div>
     );
