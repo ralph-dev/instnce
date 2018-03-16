@@ -4,6 +4,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import GitHub from "../../components/github/GitHubWidget";
 import Notes from "../../components/NotesWidget"
+import Clock from 'react-live-clock';
 
 class Dashboard extends Component {
     getContentClassNames() {
@@ -18,11 +19,15 @@ class Dashboard extends Component {
     return (
       <div id="dashboard">
           <Weather/>
-          <div className={this.getContentClassNames()}>
-              <GitHub/>
-              {/*<GitHub/>*/}
-              <Notes/>
+          <div className="main-widget">
+            <Clock format={'k:mmA'} className={"clock"}/>
+            <h1>Welcome to your Instnce</h1>
           </div>
+          {/*<div className={this.getContentClassNames()}>*/}
+              {/*<GitHub/>*/}
+              {/*/!*<GitHub/>*!/*/}
+              {/*<Notes/>*/}
+          {/*</div>*/}
       </div>
     );
   }

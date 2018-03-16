@@ -8,6 +8,16 @@
   text-align: center;
 }
 
+.main-widget {
+  color: #ffffff;
+}
+
+.clock {
+  font-family: 'Mina', "Roboto", sans-serif;
+  font-size: 6em;
+  //color: white;
+}
+
 .content {
   display: inline-grid;
   grid-template: "g j";
@@ -22,23 +32,13 @@
 }
 
 .widget {
-  background-color: white;
+  background-color: $widget-background;
+  color: white;
   border-radius: 10px;
 }
 
-.widget .title {
-  color: $dark-gray;
-}
 
-.error-icon {
-  font-size: 5em;
-  color: $gray;
-  margin: 0 0 10px;
-}
 
-.subheading {
-  color: $gray;
-  font-weight: 300;
-  margin: 5px auto;
-  font-size: 1em;
-}
+@import "components/weatherWidget";
+@import "components/githubWidget";
+@import "components/notesWidget";

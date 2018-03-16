@@ -7,8 +7,10 @@ html, body {
   height: 1px;
   margin: 0;
   padding: 0;
-  background-color: $main-blue;
+  //background-color: $main-blue;
   font-family: 'Roboto', sans-serif;
+  background-image: url("http://globalmedicalco.com/photos/globalmedicalco/17/81651.jpg");
+  background-size: cover;
 }
 
 #root {
@@ -18,8 +20,5 @@ html, body {
   box-sizing: border-box;
 }
 
-@import "components/weatherWidget";
-@import "components/githubWidget";
-@import "components/notesWidget";
 @import "dashboard";
 @import "githubSuccess";

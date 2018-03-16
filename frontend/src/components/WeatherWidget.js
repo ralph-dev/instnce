@@ -37,19 +37,19 @@ class Weather extends Component {
     render() {
         if (this.props.error) {
             return (
-            <div className="weather">
+            <div className="weather widget">
                 <h1 className="error-icon">!</h1>
                 <h5 className="subheading">Could Not Get Weather</h5>
             </div>);
         } else if(this.props.currently === null || this.props.daily === null) {
             return (
-            <div className="weather">
+            <div className="weather widget">
                 <LoadingIcon width={100} height={100} color={"#4c8fc3"}/>
                 <h5 className="subheading">Loading Weather</h5>
             </div>);
         } else {
             return (
-                <div className="weather">
+                <div className="weather widget">
                     <object aria-label="weather" className="weather-icon" data={icons[this.props.currently.icon]}/>
                     <h2 className={"temperature"}>{Math.round(this.props.currently.temperature)}°</h2>
                     <h5 className={"subheading"}>{this.props.currently.summary}</h5>
