@@ -6,28 +6,16 @@ import ReduxThunk from 'redux-thunk';
 import {applyMiddleware, createStore} from "redux";
 import indexReducer from "./redux/reducers/indexReducer";
 import {Provider} from "react-redux";
-import {ConnectedRouter, routerMiddleware} from "react-router-redux";
-import createHistory from 'history/createBrowserHistory';
-import {Route, Switch} from "react-router";
 
 import Dashboard from './routes/index/Dashboard';
 
 import 'normalize.css';
 import './css/main.scss';
 
-const history = createHistory();
-
-const store = createStore(indexReducer, applyMiddleware(promiseMiddleware, ReduxThunk, routerMiddleware(history)));
+const store = createStore(indexReducer, applyMiddleware(promiseMiddleware, ReduxThunk));
 
 ReactDOM.render(
     <Provider store={store}>
         <Dashboard/>
     </Provider>, document.getElementById('root'));
 registerServiceWorker();
-
-{/*<ConnectedRouter history={history}>*/}
-    {/*<Switch>*/}
-        {/*<Route exact path = '/' component={Dashboard}/>*/}
-        {/*<Route path = '/githubSuccess' component={GitHubLoginSuccess}/>*/}
-    {/*</Switch>*/}
-{/*</ConnectedRouter>*/}

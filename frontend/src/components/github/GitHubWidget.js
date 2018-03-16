@@ -1,12 +1,13 @@
 import React from "react";
-import Cookies from 'js-cookie';
-import {clearRepo, getRepos, githubLogin, repoSelected} from "../../redux/actions/github";
+import lscache from 'lscache';
+import {clearRepo, getRepos, repoSelected} from "../../redux/actions/github";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import LoadingIcon from "../LoadingIcon";
 import GithubIcon from '../../media/icons/github-logo.svg'
 import BackButton from "../BackButton";
 import config from "../../config";
+import {githubLogin} from "../../networking/auth";
 
 class GitHub extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class GitHub extends React.Component {
         this.state = {
             className: "widget",
         };
-        this.gitHubToken = localStorage.getItem(config.GITHUB_LOCAL_STORE_KEY);
+        this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
         if (this.gitHubToken) {
             props.getRepos(this.gitHubToken);
         }
@@ -22,7 +23,6 @@ class GitHub extends React.Component {
 
 
     getBody() {
-        console.log(this.props.repos);
         if (this.props.repo === null) {
             return (
                 <div id="github-widget" className={"widget"}>
@@ -41,7 +41,7 @@ class GitHub extends React.Component {
             return(
                 <div id="github-widget" className={"widget"}>
                     <div id="github-nav">
-                        <BackButton color={"#adadad"} width={50} height={50} onClick={this.props.clearRepo} hoverColor={"#000000"}/>
+                        <BackButton color={"#ffffff"} width={50} height={50} onClick={this.props.clearRepo} hoverColor={"#000000"}/>
                     </div>
                 </div>
             )
