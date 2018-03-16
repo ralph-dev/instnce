@@ -40,7 +40,7 @@ export function githubLogin() {
             let parsed = qs.parse(qs.extract(redirectUrl));
             const code = parsed.code;
             let doc = await axios.post('/auth/github', {code: code});
-            localStorage.setItem('githubToken', doc.data.access_token);
+            localStorage.setItem(config.GITHUB_LOCAL_STORE_KEY, doc.data.access_token);
         } else {
             console.error("Github Login Failed");
         }

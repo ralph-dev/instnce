@@ -6,6 +6,7 @@ import {bindActionCreators} from "redux";
 import LoadingIcon from "../LoadingIcon";
 import GithubIcon from '../../media/icons/github-logo.svg'
 import BackButton from "../BackButton";
+import config from "../../config";
 
 class GitHub extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class GitHub extends React.Component {
         this.state = {
             className: "widget",
         };
-        this.gitHubToken = localStorage.getItem(localStorage.getItem(config.GITHUB_LOCAL_STORE_KEY));
+        this.gitHubToken = localStorage.getItem(config.GITHUB_LOCAL_STORE_KEY);
         if (this.gitHubToken) {
             props.getRepos(this.gitHubToken);
         }
