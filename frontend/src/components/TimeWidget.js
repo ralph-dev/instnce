@@ -3,7 +3,7 @@ import Clock from 'react-live-clock';
 
 const TimeWidget = () =>
     <div className="time-widget">
-        <Clock format={'k:mmA'} className={"clock"}/>
+        <Clock format={'h:mmA'} className={"clock"}/>
         <h1>Welcome to your Instnce</h1>
     </div>;
 
