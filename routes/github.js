@@ -2,9 +2,7 @@ const axios = require('axios');
 const express = require('express');
 const config = require('../config');
 
-
 const router = express.Router();
-
 
 const github = axios.create({
     baseURL: 'https://api.github.com',
@@ -20,7 +18,8 @@ const github = axios.create({
 
 const authMiddleware = (req, res, next) => {
     let authKey = req.get('Authorization');
-    if (authKey !== null) {
+    console.log("Auth Key", authKey);
+    if (authKey !== null && authKey !== undefined) {
         req.key = authKey;
         next();
     } else {
@@ -58,8 +57,8 @@ router.get('/repos/:owner/:repo', async (req, res) => {
                     Authorization: `token ${req.key}`
                 }
             });
-            if (githubRes.status !== 200) {
-                res.stats(githubRes.status).send();
+            if (githubRes.response.status !== 200) {
+                res.stats(githubRes.response.status).send();
             } else {
                 res.send(githubRes.data);
             }

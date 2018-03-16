@@ -10,7 +10,13 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
+  "background": {
+    "scripts": ["./static/js/index.js"]
+  },
   "permissions": [
-    "activeTab"
-  ]
+    "activeTab",
+    "identity",
+    "geolocation"
+  ],
+  "key": "bchfdkaolfkgbmfigkkffconkfolchmp"
 }

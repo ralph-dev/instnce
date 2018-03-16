@@ -13,7 +13,8 @@ class GitHub extends React.Component {
         this.state = {
             className: "widget",
         };
-        this.gitHubToken = Cookies.get('githubToken');
+        this.gitHubToken = localStorage.getItem("githubToken");
+        console.log(this.gitHubToken);
         if (this.gitHubToken) {
             props.getRepos(this.gitHubToken);
         }
@@ -51,7 +52,7 @@ class GitHub extends React.Component {
         if (!this.gitHubToken) {
             return (
                 <div id="github-widget" className={"widget login"}>
-                    <button className={"login-button"} onClick={this.props.githubLogin}>
+                    <button className={"login-button"} onClick={githubLogin}>
                         <object data={GithubIcon} aria-label="github login"/>
                         Github
                     </button>
@@ -87,7 +88,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    githubLogin,
     getRepos,
     clearRepo,
     repoSelected: (repo) => repoSelected(Cookies.get('githubToken'), repo)

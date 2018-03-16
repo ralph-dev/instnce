@@ -22,11 +22,13 @@ const store = createStore(indexReducer, applyMiddleware(promiseMiddleware, Redux
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <Switch>
-                <Route exact path = '/' component={Dashboard}/>
-                <Route path = '/githubSuccess' component={GitHubLoginSuccess}/>
-            </Switch>
-        </ConnectedRouter>
+        <Dashboard/>
     </Provider>, document.getElementById('root'));
 registerServiceWorker();
+
+{/*<ConnectedRouter history={history}>*/}
+    {/*<Switch>*/}
+        {/*<Route exact path = '/' component={Dashboard}/>*/}
+        {/*<Route path = '/githubSuccess' component={GitHubLoginSuccess}/>*/}
+    {/*</Switch>*/}
+{/*</ConnectedRouter>*/}
