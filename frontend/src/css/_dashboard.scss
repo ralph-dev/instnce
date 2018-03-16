@@ -1,15 +1,19 @@
 #dashboard {
   height: 100%;
-  display: grid;
-  grid-template: "w" "c";
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr;
-  grid-gap: 80px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
-.main-widget {
-  color: #ffffff;
+
+
+.widget {
+  background-color: $widget-background;
+  border-radius: 10px;
+  max-width: 100%;
+  margin-left: 80px;
+  padding: 20px;
+  height: 100%;
 }
 
 .clock {
@@ -18,27 +22,8 @@
   //color: white;
 }
 
-.content {
-  display: inline-grid;
-  grid-template: "g j";
-  grid-area: c;
-  grid-gap: 0 40px;
-  transition: 1s;
-  grid-template-columns: 350px 1fr;
-}
-
-.expanded {
-  grid-template-columns: 1fr 350px;
-}
-
-.widget {
-  background-color: $widget-background;
-  color: white;
-  border-radius: 10px;
-}
-
-
-
 @import "components/weatherWidget";
 @import "components/githubWidget";
 @import "components/notesWidget";
+@import "components/timeWidget";
+@import "components/quickLinks";

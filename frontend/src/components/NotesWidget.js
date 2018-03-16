@@ -50,7 +50,7 @@ class Notes extends Component {
 
   render(){
     return (
-      <div className="notes">
+      <div className="widget notes">
         <form onSubmit={this.addNote}>
         <div>Notes</div>
         <label>

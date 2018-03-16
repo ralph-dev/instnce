@@ -10,7 +10,6 @@ export default function (state = default_state, action) {
         case FETCH_WEATHER:
             return {...state, weather: action.payload.data, error: (action.payload.status !== 200)};
         case LOCATION_ERROR:
-            console.log("Could not get Location");
             return {...state, error: true};
         default:
             return state;

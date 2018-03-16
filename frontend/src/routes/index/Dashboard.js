@@ -1,44 +1,42 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Weather from "../../components/WeatherWidget";
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
 import GitHub from "../../components/github/GitHubWidget";
 import Notes from "../../components/NotesWidget"
-import Clock from 'react-live-clock';
+import TimeWidget from "../../components/TimeWidget";
+import QuickLinks from "../../components/quick-links/QuickLinks";
+
+export const HOME = 0;
+export const GITHUB = 1;
+export const NOTES = 2;
+
+const Home = () =>
+    <div>
+        <Weather/>
+        <TimeWidget/>
+    </div>;
 
 class Dashboard extends Component {
-    getContentClassNames() {
-        if (this.props.focus) {
-            return "content expanded"
-        } else {
-            return "content"
+    constructor() {
+        super();
+        this.state = {
+            open: HOME
         }
     }
 
+    setOpen(id) {
+        this.setState({open: id});
+    }
+
     render() {
-    return (
-      <div id="dashboard">
-          <Weather/>
-          <div className="main-widget">
-            <Clock format={'k:mmA'} className={"clock"}/>
-            <h1>Welcome to your Instnce</h1>
-          </div>
-          {/*<div className={this.getContentClassNames()}>*/}
-              {/*<GitHub/>*/}
-              {/*/!*<GitHub/>*!/*/}
-              {/*<Notes/>*/}
-          {/*</div>*/}
-      </div>
-    );
-  }
+        const components = [<Home/>, <GitHub/>, <Notes/>];
+        return (
+            <div id="dashboard">
+                <QuickLinks onClick={this.setOpen.bind(this)}/>
+                {components[this.state.open]}
+            </div>
+        );
+    }
 }
 
-const mapStateToProps = state => ({
-    focus: state.github.focus
-});
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);
+export default Dashboard;

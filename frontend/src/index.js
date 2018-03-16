@@ -11,7 +11,6 @@ import createHistory from 'history/createBrowserHistory';
 import {Route, Switch} from "react-router";
 
 import Dashboard from './routes/index/Dashboard';
-import GitHubLoginSuccess from "./routes/index/GitHubLoginSuccess";
 
 import 'normalize.css';
 import './css/main.scss';
