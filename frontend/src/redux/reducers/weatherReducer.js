@@ -1,4 +1,6 @@
-import {FETCH_WEATHER, LOCATION_ERROR} from "../actions/weatherActions";
+import {FETCH_LOCAL_WEATHER, FETCH_WEATHER, LOCATION_ERROR} from "../actions/weatherActions";
+import config from "../../config";
+import lscache from 'lscache';
 
 const default_state = {
     error: false,
@@ -7,10 +9,14 @@ const default_state = {
 
 export default function (state = default_state, action) {
     switch (action.type) {
+        case FETCH_LOCAL_WEATHER:
+            return {...state, weather: action.payload};
         case FETCH_WEATHER:
-            return {...state, weather: action.payload.data, error: (action.payload.status !== 200)};
+            if (!action.payload.error) {
+                lscache.set(config.WEATHER_LOCAL_STORE_KEY, action.payload.data, 5);
+            }
+            return {...state, weather: action.payload.data, error: action.payload.error};
         case LOCATION_ERROR:
-            console.log("Could not get Location");
             return {...state, error: true};
         default:
             return state;

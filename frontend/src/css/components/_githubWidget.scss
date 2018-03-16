@@ -1,14 +1,10 @@
 #github-widget  {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: -moz-available;          /* WebKit-based browsers will ignore this. */
-  height: -webkit-stretch;  /* Mozilla-based browsers will ignore this. */
-  height: stretch;
   overflow-y: hidden;
-  //width: 350px;
   transition: 1s;
+  font-size: 1.2em;
 }
 
 #github-widget:focus, #github-widget:active, #github-widget:hover {

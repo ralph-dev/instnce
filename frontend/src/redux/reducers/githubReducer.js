@@ -4,7 +4,6 @@ const default_state = {
     error: false,
     repos: [],
     loading: false,
-    focus: false,
     repo: null
 };
 
