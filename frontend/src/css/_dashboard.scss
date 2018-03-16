@@ -21,13 +21,13 @@
   background:transparent; // manage scrollbar background color here
 }
 .widget::-webkit-scrollbar-thumb {
-  background:rgba(255,0,0,0.1) !important; // manage scrollbar thumb background color here
+  background:rgba(255,0,0,0.2) !important; // manage scrollbar thumb background color here
+  border-radius: 10px;
 }
 
 .clock {
   font-family: 'Mina', "Roboto", sans-serif;
   font-size: 6em;
-  //color: white;
 }
 
 @import "components/weatherWidget";
@@ -35,3 +35,4 @@
 @import "components/notesWidget";
 @import "components/timeWidget";
 @import "components/quickLinks";
+@import "components/settingsWidget";

@@ -17,7 +17,7 @@ export default function (state = default_state, action) {
             }
             return {...state, weather: action.payload.data, error: action.payload.error};
         case LOCATION_ERROR:
-            return {...state, error: true};
+            return {...state, error: action.payload};
         default:
             return state;
     }

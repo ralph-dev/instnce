@@ -16,11 +16,14 @@ class GitHub extends React.Component {
             className: "widget",
         };
         this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
-        if (this.gitHubToken) {
-            props.getRepos(this.gitHubToken);
-        }
     }
 
+
+    componentWillMount() {
+        if (this.gitHubToken) {
+            this.props.getRepos(this.gitHubToken);
+        }
+    }
 
     getBody() {
         if (this.props.repo === null) {
