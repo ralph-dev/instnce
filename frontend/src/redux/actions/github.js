@@ -2,7 +2,7 @@
 
 import axios from "../../networking/axios";
 import qs from 'query-string';
-import Cookies from 'js-cookie';
+import config from "../../config";
 
 export const REPO_SELECTED = "REPO_SELECTED";
 export const FETCH_REPOS = 'FETCH_REPOS';
@@ -26,7 +26,7 @@ function githubFocus(inFocus) {
 export function githubLogin() {
     const oauth2Endpoint = 'https://github.com/login/oauth/authorize';
 
-    const params = {'client_id': 'c74908c7643a8e010d50',
+    const params = {'client_id': config.GITHUB_KEY,
         'redirect_uri': chrome.identity.getRedirectURL("oauth2"),
         'scope': ['user', 'public_repo', 'repo']
     };
@@ -73,11 +73,11 @@ function _repoSelected(repo) {
 }
 
 export function repoSelected(authKey, repo) {
+    console.log("Auth", authKey);
     return (dispatch) => {
         dispatch(githubFocus(true));
         dispatch(_repoSelected(repo));
         let url = repo.pulls_url.match(/\/repos.+?(?=pulls)/i)[0];
-        console.log(url);
 
         let promise = axios('github' + url,  {
             headers: {'Authorization': authKey},

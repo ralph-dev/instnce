@@ -13,8 +13,7 @@ class GitHub extends React.Component {
         this.state = {
             className: "widget",
         };
-        this.gitHubToken = localStorage.getItem("githubToken");
-        console.log(this.gitHubToken);
+        this.gitHubToken = localStorage.getItem(localStorage.getItem(config.GITHUB_LOCAL_STORE_KEY));
         if (this.gitHubToken) {
             props.getRepos(this.gitHubToken);
         }
@@ -30,7 +29,7 @@ class GitHub extends React.Component {
                         <h1 className="title">GitHub</h1>
                         {this.props.repos.map((repo) =>
                             <li className={"github-repo"}
-                                key={repo.id} onClick={() => this.props.repoSelected(repo)}>
+                                key={repo.id} onClick={() => this.props.repoSelected(this.gitHubToken, repo)}>
                                 <h3 className="repo-name">{repo.name}</h3>
                             </li>)}
                     </ul>
@@ -90,7 +89,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     getRepos,
     clearRepo,
-    repoSelected: (repo) => repoSelected(Cookies.get('githubToken'), repo)
+    repoSelected: (authKey, repo) => repoSelected(repo)
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(GitHub);

@@ -7,7 +7,7 @@ class Notes extends Component {
     this.state = {
       currentNote: "",
       noteList: [],
-    }
+    };
     this.addNote = this.addNote.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.deleteNotes = this.deleteNotes.bind(this);
@@ -47,6 +47,7 @@ class Notes extends Component {
     this.setState({noteList: []});
     localStorage.clear();
   }
+
   render(){
     return (
       <div className="notes">
