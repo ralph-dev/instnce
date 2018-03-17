@@ -34,7 +34,13 @@ class Dashboard extends Component {
     }
 
     render() {
-        const components = {HOME: <Home/>, GITHUB: <GitHub/>, NOTES: <Notes/>, SETTINGS: <SettingsWidget/>, CREDITS: <Credits/>};
+        const components = {
+          HOME: <Home/>,
+          GITHUB: <GitHub/>,
+          NOTES: <Notes/>,
+          SETTINGS: <SettingsWidget/>,
+          CREDITS: <Credits/>
+        };
         console.log(this.props.fontSize);
         return (
             <div id="dashboard" style={{fontSize: `${this.props.fontSize}rem`}}>
