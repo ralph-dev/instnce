@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Weather from "../../components/WeatherWidget";
+import "../../css/components/_popUp.scss";
 
 class Link extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class App extends Component {
 
         this.state = {
             value: '',
-            links: JSON.parse(localStorage.getItem("links"))
+            links: JSON.parse(localStorage.getItem("links")) || []
         };
 
         this.handleChange = this.handleChange.bind(this);

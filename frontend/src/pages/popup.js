@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../css/main.scss';
 import App from '../routes/popup/App';
 import registerServiceWorker from '../registerServiceWorker';
 import promiseMiddleware from "redux-promise";
@@ -16,4 +15,5 @@ ReactDOM.render(
         <App />
     </Provider>, document.getElementById('root'));
 registerServiceWorker();
-// TODO: THIS DOES NOTHING DELETE THE FILE TODO
+
+// DO NOT DELETE THIS FILE, It's contents get replaced by App.js thanks to Webpack
