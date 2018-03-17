@@ -21,9 +21,10 @@ class Link extends Component {
 
     render() {
         return (
-            <div>
+            <div className="linkObj">
                 <p className="linkData">{this.props.value}</p>
-                <button onClick={this.updateClipboard}>Copy Link</button>
+                <button className="linkCopy"                                  onClick={this.updateClipboard}
+                title="Copy Link"/>
             </div>
         );
     }
@@ -63,11 +64,10 @@ class App extends Component {
                 </div>
                 <div className="AddLink">
                     <form>
-                        <label>
-                            Add Quick Link
-                            <textarea value={this.state.value} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Save Link" onClick={this.handleSubmit} />
+                        <textarea className="typeLink"
+                          value={this.state.value} onChange={this.handleChange}
+                        placeholder="Insert a new link" />
+                        <input className="saveLink" type="submit" value="Save Link" onClick={this.handleSubmit} />
                     </form>
                 </div>
             </div>
