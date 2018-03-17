@@ -5,6 +5,7 @@ import Notes from "../../components/NotesWidget"
 import TimeWidget from "../../components/TimeWidget";
 import QuickLinks from "../../components/quick-links/QuickLinks";
 import SettingsWidget from "../../components/SettingsWidget";
+import Credits from "../../components/Credits"
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
@@ -12,6 +13,7 @@ export const HOME = "HOME";
 export const GITHUB = "GITHUB";
 export const NOTES = "NOTES";
 export const SETTINGS = "SETTINGS";
+export const CREDITS = "CREDITS";
 
 const Home = () =>
     <div>
@@ -32,7 +34,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const components = {HOME: <Home/>, GITHUB: <GitHub/>, NOTES: <Notes/>, SETTINGS: <SettingsWidget/>};
+        const components = {HOME: <Home/>, GITHUB: <GitHub/>, NOTES: <Notes/>, SETTINGS: <SettingsWidget/>, CREDITS: <Credits/>};
         console.log(this.props.fontSize);
         return (
             <div id="dashboard" style={{fontSize: `${this.props.fontSize}rem`}}>
