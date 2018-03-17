@@ -3,9 +3,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-size: 1.25rem;
 }
-
-
 
 .widget {
   background-color: $widget-background;
@@ -16,14 +15,21 @@
   height: 100%;
 }
 
-.clock {
-  font-family: 'Mina', "Roboto", sans-serif;
-  font-size: 6em;
-  //color: white;
+.widget::-webkit-scrollbar {
+  width:15px; // manage scrollbar width here
 }
+.widget::-webkit-scrollbar * {
+  background:transparent; // manage scrollbar background color here
+}
+.widget::-webkit-scrollbar-thumb {
+  background:rgba(255,0,0,0.2) !important; // manage scrollbar thumb background color here
+  border-radius: 10px;
+}
+
 
 @import "components/weatherWidget";
 @import "components/githubWidget";
 @import "components/notesWidget";
 @import "components/timeWidget";
 @import "components/quickLinks";
+@import "components/settingsWidget";

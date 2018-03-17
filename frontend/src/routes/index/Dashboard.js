@@ -4,10 +4,14 @@ import GitHub from "../../components/github/GitHubWidget";
 import Notes from "../../components/NotesWidget"
 import TimeWidget from "../../components/TimeWidget";
 import QuickLinks from "../../components/quick-links/QuickLinks";
+import SettingsWidget from "../../components/SettingsWidget";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
-export const HOME = 0;
-export const GITHUB = 1;
-export const NOTES = 2;
+export const HOME = "HOME";
+export const GITHUB = "GITHUB";
+export const NOTES = "NOTES";
+export const SETTINGS = "SETTINGS";
 
 const Home = () =>
     <div>
@@ -19,24 +23,32 @@ class Dashboard extends Component {
     constructor() {
         super();
         this.state = {
-            open: HOME
+            step: HOME
         }
     }
 
     setOpen(id) {
-        this.setState({open: id});
+        this.setState({step: id});
     }
 
     render() {
-        const components = [<Home/>, <GitHub/>, <Notes/>];
+        const components = {HOME: <Home/>, GITHUB: <GitHub/>, NOTES: <Notes/>, SETTINGS: <SettingsWidget/>};
+        console.log(this.props.fontSize);
         return (
-            <div id="dashboard">
+            <div id="dashboard" style={{fontSize: `${this.props.fontSize}rem`}}>
                 <QuickLinks onClick={this.setOpen.bind(this)}/>
-                {components[this.state.open]}
+                {components[this.state.step]}
             </div>
         );
     }
 }
 
+const mapStateToProps = state => ({
+    fontSize: state.settings.fontSize
+});
 
-export default Dashboard;
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);

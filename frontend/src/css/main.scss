@@ -1,17 +1,20 @@
 @import "mixins";
 @import "colors";
-@import url('https://fonts.googleapis.com/css?family=Mina|Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Mina|Montserrat:300,400,500');
 html, body {
   width: 100%;
   min-height: 100%;
   height: 1px;
   margin: 0;
   padding: 0;
-  //background-color: $main-blue;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-image: url("http://globalmedicalco.com/photos/globalmedicalco/17/81651.jpg");
   background-size: cover;
   color: white;
+}
+
+button:focus, button:active {
+  outline: none;
 }
 
 #root {
