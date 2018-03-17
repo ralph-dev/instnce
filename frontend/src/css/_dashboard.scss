@@ -1,44 +1,35 @@
 #dashboard {
   height: 100%;
-  display: grid;
-  grid-template: "w" "c";
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr;
-  grid-gap: 80px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-}
-
-.content {
-  display: inline-grid;
-  grid-template: "g j";
-  grid-area: c;
-  grid-gap: 0 40px;
-  transition: 1s;
-  grid-template-columns: 350px 1fr;
-}
-
-.expanded {
-  grid-template-columns: 1fr 350px;
+  font-size: 1.25em;
 }
 
 .widget {
-  background-color: white;
+  background-color: $widget-background;
+  border-radius: 10px;
+  max-width: 100%;
+  margin-left: 80px;
+  padding: 20px;
+  height: 100%;
+}
+
+.widget::-webkit-scrollbar {
+  width:15px; // manage scrollbar width here
+}
+.widget::-webkit-scrollbar * {
+  background:transparent; // manage scrollbar background color here
+}
+.widget::-webkit-scrollbar-thumb {
+  background:rgba(255,0,0,0.2) !important; // manage scrollbar thumb background color here
   border-radius: 10px;
 }
 
-.widget .title {
-  color: $dark-gray;
-}
 
-.error-icon {
-  font-size: 5em;
-  color: $gray;
-  margin: 0 0 10px;
-}
-
-.subheading {
-  color: $gray;
-  font-weight: 300;
-  margin: 5px auto;
-  font-size: 1em;
-}
+@import "components/weatherWidget";
+@import "components/githubWidget";
+@import "components/notesWidget";
+@import "components/timeWidget";
+@import "components/quickLinks";
+@import "components/settingsWidget";

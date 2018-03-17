@@ -1,39 +1,54 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Weather from "../../components/WeatherWidget";
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
 import GitHub from "../../components/github/GitHubWidget";
 import Notes from "../../components/NotesWidget"
+import TimeWidget from "../../components/TimeWidget";
+import QuickLinks from "../../components/quick-links/QuickLinks";
+import SettingsWidget from "../../components/SettingsWidget";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+
+export const HOME = "HOME";
+export const GITHUB = "GITHUB";
+export const NOTES = "NOTES";
+export const SETTINGS = "SETTINGS";
+
+const Home = () =>
+    <div>
+        <Weather/>
+        <TimeWidget/>
+    </div>;
 
 class Dashboard extends Component {
-    getContentClassNames() {
-        if (this.props.focus) {
-            return "content expanded"
-        } else {
-            return "content"
+    constructor() {
+        super();
+        this.state = {
+            step: HOME
         }
     }
 
+    setOpen(id) {
+        this.setState({step: id});
+    }
+
     render() {
-    return (
-      <div id="dashboard">
-          <Weather/>
-          <div className={this.getContentClassNames()}>
-              <GitHub/>
-              {/*<GitHub/>*/}
-              <Notes/>
-          </div>
-      </div>
-    );
-  }
+        const components = {HOME: <Home/>, GITHUB: <GitHub/>, NOTES: <Notes/>, SETTINGS: <SettingsWidget/>};
+        console.log(this.props.fontSize);
+        return (
+            <div id="dashboard" style={{fontSize: `${this.props.fontSize}rem`}}>
+                <QuickLinks onClick={this.setOpen.bind(this)}/>
+                {components[this.state.step]}
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-    focus: state.github.focus
+    fontSize: state.settings.fontSize
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
 
+const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);

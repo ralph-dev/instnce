@@ -1,3 +1,4 @@
+
 import axios from "../../networking/axios";
 
 export const REPO_SELECTED = "REPO_SELECTED";
@@ -19,10 +20,6 @@ function githubFocus(inFocus) {
     }
 }
 
-export function githubLogin() {
-    let baseURL = process.env.API_ENDPOINT || "http://localhost:8080";
-    window.location.replace(`${baseURL}/auth/github`);
-}
 
 export function getRepos(authKey) {
     return (dispatch) => {
@@ -49,11 +46,11 @@ function _repoSelected(repo) {
 }
 
 export function repoSelected(authKey, repo) {
+    console.log("Auth", authKey);
     return (dispatch) => {
         dispatch(githubFocus(true));
         dispatch(_repoSelected(repo));
         let url = repo.pulls_url.match(/\/repos.+?(?=pulls)/i)[0];
-        console.log(url);
 
         let promise = axios('github' + url,  {
             headers: {'Authorization': authKey},
