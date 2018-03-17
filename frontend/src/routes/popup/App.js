@@ -50,10 +50,13 @@ class App extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        let newLinks = this.state.links.slice();
-        newLinks.push(this.state.value);
-        this.setState({ links: newLinks });
-        localStorage.setItem("links", JSON.stringify(newLinks));
+        if (this.state.value.length >= 1) {
+          let newLinks = this.state.links.slice();
+          newLinks.push(this.state.value);
+          this.setState({ links: newLinks });
+          this.setState({value: ""});
+          localStorage.setItem("links", JSON.stringify(newLinks));
+        }
     }
 
     render() {
