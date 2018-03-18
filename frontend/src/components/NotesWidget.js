@@ -18,23 +18,13 @@ class Notes extends Component {
       this.setState({noteList: notes});
     }
   }
-  componentDidMount(){
-    this.updateNote();
-  }
-  componentDidUpdate(){
-    this.updateNote();
-  }
-  updateNote(){
-    var html = '';
-    for (var i = 0; i<this.state.noteList.length; i++){
-      html += '<div class="note">' + this.state.noteList[i] + '</div>';
-    }
-    this.refs.list.innerHTML = html;
-  }
+
   addNote(e){
     e.preventDefault();
     var myNote = this.state.noteList.slice();
-    myNote.push(this.state.currentNote);
+    if (this.state.currentNote != ''){
+      myNote.push(this.state.currentNote);
+    }
     localStorage.setItem("notes", JSON.stringify(myNote));
     this.setState({noteList: myNote});
     this.setState({currentNote: ""});
@@ -47,18 +37,34 @@ class Notes extends Component {
     this.setState({noteList: []});
     localStorage.clear();
   }
-
+  deleteNote(content){
+    var myNote = this.state.noteList.slice();
+    var index = myNote.indexOf(content);
+    myNote.splice(index, 1);
+    this.setState({noteList: myNote});
+    localStorage.setItem("notes", JSON.stringify(myNote));
+  }
   render(){
+    const nl = this.state.noteList;
+    const display = nl.map(content => {
+      return (
+        <li key={content}>
+          <div onClick={() => this.deleteNote(content)}>{content}</div>
+        </li>
+      );
+    });
     return (
       <div className="widget notes">
         <form onSubmit={this.addNote}>
-        <div>Notes</div>
+        <h1>Notes</h1>
         <label>
-          <input id="field" type="text" value={this.state.currentNote} onChange={this.handleNote} />
+          <input className="field" type="text" value={this.state.currentNote} onChange={this.handleNote}/>
         </label>
         </form>
-        <button className="clear" onClick={this.deleteNotes}>Clear</button>
-        <div className="list" ref="list"></div>
+        <button className="clear" onClick={this.deleteNotes}>Clear All</button>
+        <div className="list" ref="list">
+          <ul>{display}</ul>
+        </div>
       </div>
     );
   }
