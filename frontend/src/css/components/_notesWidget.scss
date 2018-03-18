@@ -1,4 +1,4 @@
-.clear{
+.notes .clear{
   color: white;
   background-color: $login-green-bright;
   border: none;
@@ -7,10 +7,25 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-.note{
-  width: 230px;
-
-  overflow: hidden;
-  white-space: nowrap;
+.notes {
+  overflow: scroll;
+}
+.notes h1{
+  margin-top: 0;
+  font-family: 'Mina', 'Montserrat', sans-serif;
+}
+.notes ul{
   text-overflow: ellipsis;
+}
+.notes .list{
+  text-align: left;
+}
+.notes .field{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid white;
+  text-align: center;
+  color: white;
+  width: 500px;
 }
