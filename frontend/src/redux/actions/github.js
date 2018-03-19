@@ -22,6 +22,7 @@ function githubFocus(inFocus) {
 
 
 export function getRepos(authKey) {
+    console.log(authKey);
     return (dispatch) => {
         dispatch(githubLoading());
 

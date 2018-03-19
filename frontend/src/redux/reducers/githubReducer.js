@@ -17,9 +17,9 @@ export default function (state = default_state, action) {
             console.log(action.payload);
             return {...state, repo: action.payload};
         case FETCH_PRS:
-            return {...state, loading: false,  error: (action.payload.error), repo: (action.payload.data)};
+            return {...state, loading: false,  error: (action.error), repo: (action.payload.data)};
         case FETCH_REPOS:
-            return {...state, repos: state.repos.concat(action.payload.data), error: (action.payload.error), loading: false};
+            return {...state, repos: state.repos.concat(action.payload.data), error: (action.error), loading: false};
         default:
             return state;
     }

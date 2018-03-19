@@ -7,7 +7,7 @@ import LoadingIcon from "../LoadingIcon";
 import GithubIcon from '../../media/icons/github-logo.svg'
 import BackButton from "../BackButton";
 import config from "../../config";
-import {githubLogin} from "../../networking/auth";
+import {githubLogin} from "../../redux/actions/auth";
 
 class GitHub extends React.Component {
     constructor(props) {
@@ -15,18 +15,18 @@ class GitHub extends React.Component {
         this.state = {
             className: "widget",
         };
-        this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
     }
 
 
     componentWillMount() {
+        this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
         if (this.gitHubToken) {
             this.props.getRepos(this.gitHubToken);
         }
     }
 
     getBody() {
-        if (this.props.repo === null) {
+        if (this.props.repo) {
             return (
                 <div id="github-widget" className={"widget"}>
                     <ul className={"repo-list"}>
@@ -52,10 +52,11 @@ class GitHub extends React.Component {
     }
 
     render() {
+        this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
         if (!this.gitHubToken) {
             return (
                 <div id="github-widget" className={"widget login"}>
-                    <button className={"login-button"} onClick={githubLogin}>
+                    <button className={"login-button"} onClick={this.props.githubLogin}>
                         <object data={GithubIcon} aria-label="github login"/>
                         Github
                     </button>
@@ -93,6 +94,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     getRepos,
     clearRepo,
+    githubLogin,
     repoSelected: (authKey, repo) => repoSelected(repo)
 }, dispatch);
 
