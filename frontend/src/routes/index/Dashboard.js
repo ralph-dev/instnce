@@ -8,6 +8,7 @@ import SettingsWidget from "../../components/SettingsWidget";
 import Credits from "../../components/Credits"
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import {spotifyLogin, spotifyRefresh} from "../../redux/actions/auth";
 
 export const HOME = "HOME";
 export const GITHUB = "GITHUB";
@@ -57,6 +58,8 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+    spotifyLogin,
+    spotifyRefresh
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);

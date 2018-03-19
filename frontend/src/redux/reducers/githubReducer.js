@@ -1,10 +1,13 @@
 import {FETCH_PRS, FETCH_REPOS, GITHUB_FOCUS, GITHUB_LOADING, REPO_SELECTED} from "../actions/github";
+import config from "../../config";
+import lscache from "lscache";
 
 const default_state = {
     error: false,
     repos: [],
     loading: false,
-    repo: null
+    repo: null,
+    gitHubToken: lscache.get(config.GITHUB_LOCAL_STORE_KEY)
 };
 
 export default function (state = default_state, action) {

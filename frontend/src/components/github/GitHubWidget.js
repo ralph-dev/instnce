@@ -19,9 +19,8 @@ class GitHub extends React.Component {
 
 
     componentWillMount() {
-        this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
-        if (this.gitHubToken) {
-            this.props.getRepos(this.gitHubToken);
+        if (this.props.gitHubToken) {
+            this.props.getRepos(this.props.gitHubToken);
         }
     }
 
@@ -52,8 +51,7 @@ class GitHub extends React.Component {
     }
 
     render() {
-        this.gitHubToken = lscache.get(config.GITHUB_LOCAL_STORE_KEY);
-        if (!this.gitHubToken) {
+        if (!this.props.gitHubToken) {
             return (
                 <div id="github-widget" className={"widget login"}>
                     <button className={"login-button"} onClick={this.props.githubLogin}>
@@ -88,7 +86,8 @@ const mapStateToProps = state => ({
     loading: state.github.loading,
     repos: state.github.repos,
     error: state.github.error,
-    repo: state.github.repo
+    repo: state.github.repo,
+    gitHubToken: state.github.gitHubToken
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
