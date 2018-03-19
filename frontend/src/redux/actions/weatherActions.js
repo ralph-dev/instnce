@@ -24,7 +24,7 @@ export function getLocationAndWeather(forceUpdate) {
     return (dispatch) => {
         let weather = lscache.get(config.WEATHER_LOCAL_STORE_KEY);
         let position = lscache.get(config.LOCATION_LOCAL_STORE_KEY);
-        if (weather && forceUpdate !== true) {
+        if (weather!==null && weather!==undefined && forceUpdate !== true) {
             console.log("Getting Local Weather");
             dispatch(gotStoredWeather(weather));
         } else if (position && forceUpdate !== true) {

@@ -12,10 +12,10 @@ export default function (state = default_state, action) {
         case FETCH_LOCAL_WEATHER:
             return {...state, weather: action.payload};
         case FETCH_WEATHER:
-            if (!action.payload.error) {
+            if (!action.error && action.payload.data) {
                 lscache.set(config.WEATHER_LOCAL_STORE_KEY, action.payload.data, 5);
             }
-            return {...state, weather: action.payload.data, error: action.payload.error};
+            return {...state, weather: action.payload.data, error:action.error};
         case LOCATION_ERROR:
             return {...state, error: action.payload};
         default:
