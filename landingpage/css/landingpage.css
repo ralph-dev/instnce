@@ -1,0 +1,44 @@
+header{
+  text-align: center;
+}
+.titlebar{
+  font-family: 'Montserrat', sans-serif;
+  width: 750px;
+}
+hr {
+  width: 50%;
+}
+body{
+  text-align: center;
+  list-style-type: none;
+  background-color: #2c518c;
+  font-family: 'Mina', 'Montserrat', sans-serif;
+  color: white;
+}
+h1{
+  font-size: 50px;
+}
+h2{
+  font-size: 30px;
+}
+.cover{
+  border-radius: 5px;
+  max-width: 750px;
+  max-height: 750px;
+}
+ul{
+  list-style-type: none;
+}
+.downloadbutton{
+  color: white;
+  background-color: #00df00;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+}
