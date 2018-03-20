@@ -23,8 +23,7 @@ class Link extends Component {
         return (
             <div className="linkObj">
                 <p className="linkData">{this.props.value}</p>
-                <button className="linkCopy"                                  onClick={this.updateClipboard}
-                title="Copy Link"/>
+                <button className="linkCopy" onClick={this.updateClipboard} title="Copy Link"/>
             </div>
         );
     }
