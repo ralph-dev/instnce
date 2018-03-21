@@ -1,11 +1,8 @@
 import React from 'react';
-import lscache from 'lscache';
-import config from "../config";
 import { bindActionCreators } from "redux";
-import { getLocationAndWeather } from "../redux/actions/weatherActions";
 import { connect } from "react-redux";
-import { setFontSize } from "../redux/actions/settings";
-import { spotify } from 'react-icons-kit/fa/';
+import {clearRepo, getRepos, repoSelected} from "../redux/actions/github";
+import {githubLogin} from "../redux/actions/auth";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
@@ -54,4 +51,21 @@ class SpotifyWidget extends React.Component {
   }
 }
 
-export default SpotifyWidget;
+
+const mapStateToProps = state => ({
+    loading: state.github.loading,
+    repos: state.github.repos,
+    error: state.github.error,
+    repo: state.github.repo,
+    gitHubToken: state.github.gitHubToken
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getRepos,
+    clearRepo,
+    githubLogin,
+    repoSelected: (authKey, repo) => repoSelected(repo)
+}, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (SpotifyWidget);

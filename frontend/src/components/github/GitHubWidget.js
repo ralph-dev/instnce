@@ -1,12 +1,10 @@
 import React from "react";
-import lscache from 'lscache';
 import {clearRepo, getRepos, repoSelected} from "../../redux/actions/github";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import LoadingIcon from "../LoadingIcon";
 import GithubIcon from '../../media/icons/github-logo.svg'
 import BackButton from "../BackButton";
-import config from "../../config";
 import {githubLogin} from "../../redux/actions/auth";
 
 class GitHub extends React.Component {
@@ -25,14 +23,14 @@ class GitHub extends React.Component {
     }
 
     getBody() {
-        if (this.props.repo) {
+        if (this.props.repos) {
             return (
                 <div id="github-widget" className={"widget"}>
                     <ul className={"repo-list"}>
                         <h1 className="title">GitHub</h1>
                         {this.props.repos.map((repo) =>
                             <li className={"github-repo"}
-                                key={repo.id} onClick={() => this.props.repoSelected(this.gitHubToken, repo)}>
+                                key={repo.id} onClick={() => this.props.repoSelected(this.props.gitHubToken, repo)}>
                                 <h3 className="repo-name">{repo.name}</h3>
                             </li>)}
                     </ul>
