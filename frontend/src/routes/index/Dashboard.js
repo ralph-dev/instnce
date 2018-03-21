@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Weather from "../../components/WeatherWidget";
 import GitHub from "../../components/github/GitHubWidget";
+import SpotifyWidget from "../../components/SpotifyWidget";
 import Notes from "../../components/NotesWidget"
 import TimeWidget from "../../components/TimeWidget";
 import QuickLinks from "../../components/quick-links/QuickLinks";
@@ -12,6 +13,7 @@ import {spotifyLogin, spotifyRefresh} from "../../redux/actions/auth";
 
 export const HOME = "HOME";
 export const GITHUB = "GITHUB";
+export const SPOTIFY = "SPOTIFY"
 export const NOTES = "NOTES";
 export const SETTINGS = "SETTINGS";
 export const CREDITS = "CREDITS";
@@ -37,7 +39,8 @@ class Dashboard extends Component {
     render() {
         const components = {
           HOME: <Home/>,
-          GITHUB: <GitHub/>,
+          GITHUB: <GitHub />,
+          SPOTIFY: <SpotifyWidget />,
           NOTES: <Notes/>,
           SETTINGS: <SettingsWidget/>,
           CREDITS: <Credits/>

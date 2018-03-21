@@ -1,18 +1,19 @@
 import React from 'react';
 import QuickLink from "./QuickLink";
 
-import {home, githubAlt, stickyNoteO, gear} from 'react-icons-kit/fa/';
-import {GITHUB, HOME, NOTES, SETTINGS} from "../../routes/index/Dashboard";
+import { home, githubAlt, spotify, stickyNoteO, gear} from 'react-icons-kit/fa/';
+import {GITHUB, HOME, NOTES, SETTINGS, SPOTIFY} from "../../routes/index/Dashboard";
 
 
 class QuickLinks extends React.Component {
 
     componentWillMount() {
         this.links = [
-            {icon: home, step: HOME},
-            {icon: githubAlt, step: GITHUB},
-            {icon: stickyNoteO, step: NOTES},
-            {icon: gear, step: SETTINGS}
+          {icon: home, step: HOME},
+          {icon: githubAlt, step: GITHUB},
+          {icon: spotify, step: SPOTIFY},
+          {icon: stickyNoteO, step: NOTES},
+          {icon: gear, step: SETTINGS}
         ];
     }
 
