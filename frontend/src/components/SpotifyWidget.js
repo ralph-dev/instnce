@@ -53,18 +53,11 @@ class SpotifyWidget extends React.Component {
 
 
 const mapStateToProps = state => ({
-    loading: state.github.loading,
-    repos: state.github.repos,
-    error: state.github.error,
-    repo: state.github.repo,
-    gitHubToken: state.github.gitHubToken
+    authToken: state.spotify.spotifyToken
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getRepos,
-    clearRepo,
-    githubLogin,
-    repoSelected: (authKey, repo) => repoSelected(repo)
+
 }, dispatch);
 
 
