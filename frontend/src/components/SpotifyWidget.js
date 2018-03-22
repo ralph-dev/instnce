@@ -1,8 +1,13 @@
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import {clearRepo, getRepos, repoSelected} from "../redux/actions/github";
-import {githubLogin} from "../redux/actions/auth";
+//import {clearRepo, getRepos, repoSelected} from "../redux/actions/github";
+//import {githubLogin} from "../redux/actions/auth";
+import { spotifyLogin } from "../redux/actions/auth";
+//import GithubIcon from '../../media/icons/github-logo.svg'
+import { spotify } from 'react-icons-kit/fa/';
+import LoadingIcon from "./LoadingIcon";
+import BackButton from "./BackButton";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
@@ -20,13 +25,12 @@ class SpotifyWidget extends React.Component {
 
 
   render() {
-  return (<div><p>Please attach Spotify OAuth</p></div>)
-    {/*if (!this.props.gitHubToken) {
+    if (!this.props.authToken) {
       return (
         <div id="github-widget" className={"widget login"}>
-          <button className={"login-button"} onClick={this.props.githubLogin}>
-            <object data={GithubIcon} aria-label="github login" />
-            Github
+          <button className={"login-button"} onClick={this.props.spotifyLogin}>
+            <object data={spotify} aria-label="github login" />
+            Spotify
           </button>
         </div>
       )
@@ -40,24 +44,26 @@ class SpotifyWidget extends React.Component {
       return (
         <div id="github-widget" className={"widget"}>
           <h1 className="error-icon">!</h1>
-          <h5 className="subheading">Could Not Connect To GitHub</h5>
+          <h5 className="subheading">Could Not Connect To Spotify</h5>
         </div>
       )
     } else {
       return (
         this.getBody()
       )
-    }*/}
+    }
   }
 }
 
 
 const mapStateToProps = state => ({
-    authToken: state.spotify.spotifyToken
+  authToken: state.spotify.spotifyToken,
+  loading: state.spotify.loading,
+  error: state.spotify.error,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+  spotifyLogin
 }, dispatch);
 
 
