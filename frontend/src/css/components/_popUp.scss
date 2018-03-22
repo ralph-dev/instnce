@@ -1,3 +1,8 @@
+.App{
+  width: 150px;
+}
+
+
 .linkObj {
   width: 150px;
   height: 20px;
@@ -5,14 +10,19 @@
 
 .linkData {
   float: left;
-  overflow: scroll;
+  overflow-x: auto;
   width: 115px;
 }
-
+.linkSetting{
+  float: left;
+  overflow-x: scroll;
+  width: 115px;
+}
 .linkCopy {
   float: right;
   background-image: url("../../media/icons/link.svg");
   background-repeat: no-repeat;
+  background-color: white;
   width: 30px;
   height: 100%;
   border: none;
@@ -27,9 +37,26 @@
   overflow-wrap: normal;
   resize: none;
   height: 15px;
-  width: 150px;
+  width: 142px;
 }
 
 .saveLink{
-  width: 100%;
+  width: 148px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.linkDelete{
+  float:right;
+  background-image: url("../../media/icons/delete.svg");
+  background-repeat: no-repeat;
+  background-color: white;
+  width: 30px;
+  height: 100%;
+  border: none;
+  margin-top: 7px;
+}
+.linkDelete:hover{
+    transform: scale(1.2);
 }
