@@ -93,8 +93,8 @@ class App extends Component {
                     <TabPanel>
                         <div className="Links">
                             {this.state.links.map(link =>
-                                <div>
-                                    <Link value={link} delete={true} />
+                                <div className="linkObj">
+                                    <p className="linkSetting">{link}</p>
                                     <button className="linkDelete" onClick={this.deleteLink} title="Delete Link" value={link} />
                                 </div>
                             )}
