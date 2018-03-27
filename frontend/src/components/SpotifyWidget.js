@@ -8,6 +8,7 @@ import { spotifyLogin } from "../redux/actions/auth";
 import { spotify } from 'react-icons-kit/fa/';
 import LoadingIcon from "./LoadingIcon";
 import BackButton from "./BackButton";
+import axios from "../networking/axios";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class SpotifyWidget extends React.Component {
     this.state = {
       musicState: "Paused"
     }
+    this.getCurrentSong = this.getCurrentSong.bind(this);
   }
 
   componentWillMount() {
@@ -23,6 +25,30 @@ class SpotifyWidget extends React.Component {
     }*/}
   }
 
+  getCurrentSong(authKey) {
+      console.log(authKey);
+
+      let promise = axios('auth/currently-playing', {
+          headers: {'Authorization': authKey},
+          method: 'GET'
+      });
+
+      promise.then(function(response){
+        console.log("--HELLOBROOOO   WORLD--\n\n");
+        console.log(response);
+        console.log("--HELLO WORLD--\n\n");
+        console.log(response.body);
+      });
+
+      return <p>"hello"</p>;
+  }
+
+  getBody() {
+      return (
+        <p>You've been authorized!</p>,
+        this.getCurrentSong()
+      );
+  }
 
   render() {
     if (!this.props.authToken) {
