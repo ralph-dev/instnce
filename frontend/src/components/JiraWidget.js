@@ -10,6 +10,10 @@ import LoadingIcon from "./LoadingIcon";
 import BackButton from "./BackButton";
 import axios from "../networking/axios";
 
+// URL: https://wolfbeacon.atlassian.net
+// URL of Instnce: https://wolfbeacon.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=IN&selectedIssue=IN-10
+// Pure URL of Instnce: https://wolfbeacon.atlassian.net/secure/RapidBoard.jspa?projectKey=IN
+
 class JiraWidget extends React.Component {
   constructor(props) {
     super(props);
