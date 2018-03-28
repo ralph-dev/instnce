@@ -37,11 +37,7 @@ router.get('/user/repos', async (req, res) => {
             }
         });
         // console.log(githubRes);
-        if (githubRes.response) {
-            res.stats(githubRes.response.status).send();
-        } else {
-            res.send(githubRes.data);
-        }
+        res.send(githubRes.data);
     } catch (err) {
         console.log(err);
         res.status(err.response.status).send();
@@ -58,12 +54,7 @@ router.get('/repos/:owner/:repo', async (req, res) => {
                     Authorization: `token ${req.key}`
                 }
             });
-
-            if (githubRes.response) {
-                res.stats(githubRes.response.status).send();
-            } else {
-                res.send(githubRes.data);
-            }
+            res.send(githubRes.data);
         } catch (err) {
             console.log(err);
             res.status(err.response.status).send();

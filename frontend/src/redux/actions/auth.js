@@ -77,7 +77,7 @@ export function spotifyLogin() {
             'client_id': config.SPOTIFY_KEY,
             'redirect_uri': chrome.identity.getRedirectURL("oauth2"),
             'scope': 'user-read-private user-read-email',
-            'state': 'state'
+            'state': state
         };
 
         let queryString = qs.stringify(params);

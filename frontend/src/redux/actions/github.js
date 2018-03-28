@@ -51,6 +51,7 @@ export function repoSelected(authKey, repo) {
     return (dispatch) => {
         dispatch(githubFocus(true));
         dispatch(_repoSelected(repo));
+        console.log(repo);
         let url = repo.pulls_url.match(/\/repos.+?(?=pulls)/i)[0];
 
         let promise = axios('github' + url,  {

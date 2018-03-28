@@ -1,13 +1,9 @@
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-//import {clearRepo, getRepos, repoSelected} from "../redux/actions/github";
-//import {githubLogin} from "../redux/actions/auth";
 import { spotifyLogin } from "../redux/actions/auth";
-//import GithubIcon from '../../media/icons/github-logo.svg'
 import { spotify } from 'react-icons-kit/fa/';
 import LoadingIcon from "./LoadingIcon";
-import BackButton from "./BackButton";
 import axios from "../networking/axios";
 
 class SpotifyWidget extends React.Component {
@@ -15,14 +11,8 @@ class SpotifyWidget extends React.Component {
     super(props);
     this.state = {
       musicState: "Paused"
-    }
+    };
     this.getCurrentSong = this.getCurrentSong.bind(this);
-  }
-
-  componentWillMount() {
-    {/*if (this.props.gitHubToken) {
-      this.props.getRepos(this.props.gitHubToken);
-    }*/}
   }
 
   getCurrentSong(authKey) {
