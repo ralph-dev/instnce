@@ -9,6 +9,7 @@ import { spotify } from 'react-icons-kit/fa/';
 import LoadingIcon from "./LoadingIcon";
 import BackButton from "./BackButton";
 import axios from "../networking/axios";
+import config from "../config";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
@@ -26,15 +27,15 @@ class SpotifyWidget extends React.Component {
   }
 
   getCurrentSong(authKey) {
-      console.log(authKey);
+      console.log("AUTHKEY!!!", authKey);
 
-      let promise = axios('auth/currently-playing', {
+      let promise = axios('spotify/currently-playing', {
           headers: {'Authorization': authKey},
           method: 'GET'
       });
 
       promise.then(function(response){
-        console.log("--HELLOBROOOO   WORLD--\n\n");
+        console.log("--HELLOBROOOO WORLD--\n\n");
         console.log(response);
         console.log("--HELLO WORLD--\n\n");
         console.log(response.body);

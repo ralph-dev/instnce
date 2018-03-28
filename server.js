@@ -20,11 +20,13 @@ app.use(cors({
 const auth = require('./routes/auth');
 const weather = require('./routes/weather');
 const github = require('./routes/github');
+const spotify = require('./routes/spotify');
 
 // routes
 app.use('/weather', weather);
 app.use('/github', github);
 app.use('/auth', auth);
+app.use('/spotify', spotify);
 
 app.get('/', (req, res) => {
     res.send('Welcome to Instnce server');
