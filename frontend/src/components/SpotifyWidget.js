@@ -5,6 +5,7 @@ import { spotifyLogin } from "../redux/actions/auth";
 import { spotify } from 'react-icons-kit/fa/';
 import LoadingIcon from "./LoadingIcon";
 import axios from "../networking/axios";
+import {Icon} from "react-icons-kit";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class SpotifyWidget extends React.Component {
       return (
         <div id="github-widget" className={"widget login"}>
           <button className={"login-button"} onClick={this.props.spotifyLogin}>
-            <object data={spotify} aria-label="github login" />
+            <Icon icon={spotify} size={30}/>
             Spotify
           </button>
         </div>
