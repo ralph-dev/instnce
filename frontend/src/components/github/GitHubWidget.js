@@ -23,7 +23,15 @@ class GitHub extends React.Component {
     }
 
     getBody() {
-        if (this.props.repos) {
+        if (this.props.repo) {
+            return (
+                <div id="github-widget" className={"widget"}>
+                    <div id="github-nav">
+                        <BackButton color={"#ffffff"} width={50} height={50} onClick={this.props.clearRepo} hoverColor={"#000000"}/>
+                    </div>
+                </div>
+            )
+        } else if (this.props.repos) {
             return (
                 <div id="github-widget" className={"widget"}>
                     <ul className={"repo-list"}>
@@ -37,14 +45,6 @@ class GitHub extends React.Component {
                 </div>
 
             );
-        } else {
-            return(
-                <div id="github-widget" className={"widget"}>
-                    <div id="github-nav">
-                        <BackButton color={"#ffffff"} width={50} height={50} onClick={this.props.clearRepo} hoverColor={"#000000"}/>
-                    </div>
-                </div>
-            )
         }
     }
 
@@ -92,7 +92,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     getRepos,
     clearRepo,
     githubLogin,
-    repoSelected: (authKey, repo) => repoSelected(repo)
+    repoSelected
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(GitHub);

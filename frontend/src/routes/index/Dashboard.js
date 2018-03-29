@@ -15,7 +15,7 @@ import {spotifyLogin, spotifyRefresh} from "../../redux/actions/auth";
 export const HOME = "HOME";
 export const GITHUB = "GITHUB";
 export const JIRA = "JIRA";
-export const SPOTIFY = "SPOTIFY"
+export const SPOTIFY = "SPOTIFY";
 export const NOTES = "NOTES";
 export const SETTINGS = "SETTINGS";
 export const CREDITS = "CREDITS";
@@ -31,7 +31,8 @@ class Dashboard extends Component {
         super();
         this.state = {
             step: HOME
-        }
+        };
+        this.setOpen = this.setOpen.bind(this);
     }
 
     setOpen(id) {
@@ -48,10 +49,10 @@ class Dashboard extends Component {
           SETTINGS: <SettingsWidget/>,
           CREDITS: <Credits/>
         };
-        console.log(this.props.fontSize);
+
         return (
             <div id="dashboard" style={{fontSize: `${this.props.fontSize}rem`}}>
-                <QuickLinks onClick={this.setOpen.bind(this)}/>
+                <QuickLinks onClick={this.setOpen}/>
                 {components[this.state.step]}
             </div>
         );

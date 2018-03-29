@@ -15,7 +15,7 @@ class SettingsWidget extends React.Component {
     }
 
     componentWillMount() {
-        this.location = lscache.get(config.LOCATION_LOCAL_STORE_KEY);
+        this.location = lscache.get(config.LOCATION_LOCAL_STORE_KEY) || {lat: undefined, long: undefined};
     }
 
     setFontSize(e) {

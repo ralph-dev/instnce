@@ -21,12 +21,15 @@ const auth = require('./routes/auth');
 const weather = require('./routes/weather');
 const github = require('./routes/github');
 const spotify = require('./routes/spotify');
+const jira = require('./routes/jira');
+
 
 // routes
 app.use('/weather', weather);
 app.use('/github', github);
 app.use('/auth', auth);
 app.use('/spotify', spotify);
+app.use('/jira', jira);
 
 app.get('/', (req, res) => {
     res.send('Welcome to Instnce server');
