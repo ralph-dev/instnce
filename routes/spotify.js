@@ -13,16 +13,17 @@ const spotifyMusic = axios.create({
 });
 
 router.get('/currently-playing', async(req, res) => {
-    const {authorization} = req.headers || {authorization: null};
+    let {authorization} = req.headers || {authorization: null};
+    authorization = 'Bearer ' + authorization;
     if (authorization) {
         try {
             let doc = await spotifyMusic('/currently-playing', {
                 headers: {'Authorization': authorization},
-                method: 'GET',
+                method: 'GET'
             });
             console.log("OUTPUT: " + doc.data);
             res.send(doc.data);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
             res.status(500).send("Could Not Get token")
         }
