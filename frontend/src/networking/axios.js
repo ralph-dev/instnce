@@ -1,6 +1,6 @@
 import * as axios from "axios";
 
-let baseURL = "http://localhost:8080";
+let baseURL = process.env.API_ENDPOINT || "http://localhost:8080";
 
 const config = {
     baseURL: baseURL,
