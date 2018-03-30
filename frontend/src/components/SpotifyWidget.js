@@ -38,7 +38,7 @@ class SpotifyWidget extends React.Component {
   getBody() {
       return (
         <p>You've been authorized!</p>,
-        this.getCurrentSong()
+        this.getCurrentSong(this.props.authToken)
       );
   }
 
