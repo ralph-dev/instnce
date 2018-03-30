@@ -1,4 +1,3 @@
-import {FETCH_PRS, FETCH_REPOS, GITHUB_FOCUS, GITHUB_LOADING, REPO_SELECTED} from "../actions/github";
 import config from "../../config";
 import lscache from "lscache";
 import {SPOTIFY_ACCESS_TOKEN} from "../actions/auth";

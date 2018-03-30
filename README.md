@@ -1,30 +1,37 @@
 # Instnce
 
-**Project Title:** Instnce
+### Project Title: Instnce
 
-**Team Members:** Nafees Rawji, Ralph Maamari, Simon Ngo
+##### Team Members: Nafees Rawji, Ralph Maamari, Simon Ngo
 
-**Description:** A new tab page which displays contexual information important to the user to increase developer velocity.
+###### Description: A chrome extension developed to increase the efficiency of an average internet surfer. Equipped with state of the art integrations, Instnce provides an instance/snapshot of all your essential tools needed for the day, whether that's checking up on the weather with DarkSky, setting up your work playlist with Spotify, checking your open Github pull requests or even your tickets on JIRA for the work day!
 
-**Key Features (Beta):**
-1. Display weather </br>
-2. Display current time </br>
-3. Display Jira Tickets </br>
+### Key Features (Beta):
+1. Integrate DarkSky API
+2. Display current time
+3. Integrate Github API for pull requests
+4. Display Notes Feature
+5. Add a Quick Links Feature (Rough)
 
-**Key Features (Final)**
-1. Integrate with GitHub to manage pull requests within the new tab page. (Might do a cross Github/Jira Integartion through our server.
-2. Have more of a *write* ability with creating JIRA Tickets from the screen. (Maybe even more complex things like Retrospectives can be tackled here -- Will require research before committing to it.)
+Key Features (Final)
+1. Integrate with GitHub API to manage pull requests within the new tab page.
+2. Integrate with JIRA API to view tickets assign to you
+3. Integrate with Spotify API for live music control
+4. Finish Quick Links Design and link management
+5. Build landing page for website
 
-**Technologies:**
+
+Technologies:
 1. ReactJS (Front-End)
 2. Redux (State Management)
 3. Github API (Data Input)
 4. Jira API (Data I/O)
 5. DarkSky Weather API (Data Input)
-</br>
-<b>Top 5 Technical Challenges:</b></br>
-1. Learning React (First Time!) </br>
-2. Learning Redux (And possibly <i>Flux React</i>) (First Time!)</br>
-3. Integerating with apis (First Time!) </br>
-4. Integrating a Github and Jira Connection (Will be complicated to control the logic behind the scenes) </br>
-5. Making into Chrome extenstion (Not sure how to display onNewTab?)</br>
+6. Spotify API (Data I/O)
+7. Axios Networking Libarary
+
+Top 5 Technical Challenges:
+1. Learning React (First Time!)
+2. Learning Redux (First Time!)
+3. Integerating with several apis (First Time!)
+5. Making into Chrome extenstion as Authentication with OAuth on Extensions is very complicated and requires a server to proxy everything for you.
