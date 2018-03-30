@@ -3,6 +3,8 @@ import axios from "../../networking/axios";
 export const FETCH_CURRENT_SONG = 'FETCH_CURRENT_SONG';
 export const FETCH_NEXT_SONG = 'FETCH_NEXT_SONG';
 export const FETCH_PREVIOUS_SONG = 'FETCH_PREVIOUS_SONG';
+export const FETCH_SHUFFLE = 'FETCH_SHUFFLE';
+
 
 export function currentlyPlaying(authKey) {
     console.log("Auth", authKey);
@@ -44,6 +46,23 @@ export function prevSong(authKey) {
 
         dispatch({
             type: FETCH_PREVIOUS_SONG,
+            payload: promise
+        })
+    }
+}
+
+export function shuffleCheck(authKey, shuffleState) {
+    console.log("Auth", authKey);
+    console.log(shuffleState);
+    return (dispatch) => {
+      let promise =  axios('spotify/shuffle', {
+          headers: {'Authorization': authKey},
+          params: {state: shuffleState},
+          method: 'PUT'
+      });
+
+        dispatch({
+            type: FETCH_SHUFFLE,
             payload: promise
         })
     }

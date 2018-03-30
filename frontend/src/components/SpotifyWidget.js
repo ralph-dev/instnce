@@ -7,13 +7,14 @@ import LoadingIcon from "./LoadingIcon";
 import axios from "../networking/axios";
 import config from "../config";
 import {Icon} from "react-icons-kit";
-import {currentlyPlaying, nextSong, prevSong} from "../redux/actions/spotify";
+import {currentlyPlaying, nextSong, prevSong, shuffleCheck} from "../redux/actions/spotify";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       musicState: "Paused",
+      musicShuffle: true,
       songName: "Unknown"
     };
     this.tick = this.tick.bind(this);
@@ -55,6 +56,8 @@ class SpotifyWidget extends React.Component {
         <div>
           <button onClick={() => this.props.prevSong(this.props.authToken)}>Previous Song</button>
           <p>Song: {this.state.songName}</p>
+          <input id="volume" type="range" min="0" max="100" value="10" step="1"/>
+          <input onClick={() => this.props.shuffleCheck(this.props.authToken, !this.state.musicShuffle)} id="shuffle" type="checkbox" placeholder="Shuffle" checked/>
           <button onClick={() => this.props.nextSong(this.props.authToken)}>Next Song</button>
         </div>
       )
@@ -74,7 +77,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   spotifyLogin,
   currentlyPlaying,
   nextSong,
-  prevSong
+  prevSong,
+  shuffleCheck
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (SpotifyWidget);
