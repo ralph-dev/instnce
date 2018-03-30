@@ -6,7 +6,7 @@ import spotifyReducer from "./spotifyReducer";
 import jiraReducer from "./jiraReducer";
 
 const indexReducer = combineReducers({
-    weather:weatherReducer,
+    weather: weatherReducer,
     github: githubReducer,
     settings: settingsReducer,
     spotify: spotifyReducer,

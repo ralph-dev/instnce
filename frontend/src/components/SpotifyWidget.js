@@ -7,39 +7,24 @@ import LoadingIcon from "./LoadingIcon";
 import axios from "../networking/axios";
 import config from "../config";
 import {Icon} from "react-icons-kit";
+import {currentlyPlaying, nextSong, prevSong} from "../redux/actions/spotify";
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      musicState: "Paused"
+      musicState: "Paused",
+      songName: "Unknown"
     };
-    this.getCurrentSong = this.getCurrentSong.bind(this);
+    this.tick = this.tick.bind(this);
+    setInterval(() => this.tick(), 1000);
   }
 
-  getCurrentSong(authKey) {
-      console.log("AUTHKEY!!!", authKey);
-
-      let promise = axios('spotify/currently-playing', {
-          headers: {'Authorization': authKey},
-          method: 'GET'
-      });
-
-      promise.then(function(response){
-        console.log("--HELLOBROOOO WORLD--\n\n");
-        console.log(response);
-        console.log("--HELLO WORLD--\n\n");
-        console.log(response.body);
-      });
-
-      return <p>"hello"</p>;
-  }
-
-  getBody() {
-      return (
-        <p>You've been authorized!</p>,
-        this.getCurrentSong(this.props.authToken)
-      );
+  tick() {
+    if (this.props.authToken) {
+        this.props.currentlyPlaying(this.props.authToken);
+        this.setState({songName: this.props.song});
+    }
   }
 
   render() {
@@ -67,7 +52,11 @@ class SpotifyWidget extends React.Component {
       )
     } else {
       return (
-        this.getBody()
+        <div>
+          <button onClick={() => this.props.prevSong(this.props.authToken)}>Previous Song</button>
+          <p>Song: {this.state.songName}</p>
+          <button onClick={() => this.props.nextSong(this.props.authToken)}>Next Song</button>
+        </div>
       )
     }
   }
@@ -78,11 +67,14 @@ const mapStateToProps = state => ({
   authToken: state.spotify.spotifyToken,
   loading: state.spotify.loading,
   error: state.spotify.error,
+  song: state.spotify.song
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  spotifyLogin
+  spotifyLogin,
+  currentlyPlaying,
+  nextSong,
+  prevSong
 }, dispatch);
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (SpotifyWidget);
