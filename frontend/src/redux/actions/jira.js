@@ -4,9 +4,9 @@ import lscache from 'lscache';
 
 export const JIRA_LOGIN = "JIRA_LOGIN";
 export const JIRA_LOGIN_FAILURE = "JIRA_LOGIN_FAILURE";
+export const FETCH_ISSUES = "FETCH_ISSUES";
 
 export function jiraLogin({url, username, password}) {
-    console.log(url);
     return async (dispatch) => {
         try {
             let res = await axios('/jira/login', {
@@ -24,7 +24,6 @@ export function jiraLogin({url, username, password}) {
                 type: JIRA_LOGIN,
                 payload: auth
             });
-            console.log(res);
         } catch (err) {
             console.log(err);
             dispatch({
@@ -32,4 +31,21 @@ export function jiraLogin({url, username, password}) {
             })
         }
     };
+}
+
+export function getIssues({url, username, password}) {
+    const promise =  axios('/jira/issues', {
+        auth: {
+            username: username,
+            password: password
+        },
+        headers: {
+            baseURL: url
+        }
+    });
+
+    return {
+        type: FETCH_ISSUES,
+        payload: promise
+    }
 }
