@@ -40,24 +40,32 @@ class JiraWidget extends React.Component {
 
     submitClicked(e) {
         e.preventDefault();
-
-
+        this.props.jiraLogin(this.state);
     }
 
     render() {
-        return (
-            <form className="widget" onSubmit={this.submitClicked.bind(this)}>
-                <input type="url" placeholder="Url" name="jira-url" value={this.state.url} onChange={this.urlChanged.bind(this)}/>
-                <input type="text" name="name" placeholder="Username" value={this.state.username} onChange={this.usernameChanged.bind(this)}/>
-                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.passwordChanged.bind(this)}/>
-                <input type="submit" value="Submit"/>
-            </form>
-        )
+        if (!this.props.auth) {
+            return (
+                <form className="widget" onSubmit={this.submitClicked.bind(this)}>
+                    <input type="url" placeholder="Url" name="jira-url" value={this.state.url} onChange={this.urlChanged.bind(this)}/>
+                    <input type="text" name="name" placeholder="Username" value={this.state.username} onChange={this.usernameChanged.bind(this)}/>
+                    <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.passwordChanged.bind(this)}/>
+                    <input type="submit" value="Submit"/>
+                </form>
+            )
+        } else {
+            return (<div className="widget">
+                <h1>Logged In</h1>
+            </div>)
+        }
+
     }
 }
 
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    auth: state.jira.auth
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     jiraLogin
