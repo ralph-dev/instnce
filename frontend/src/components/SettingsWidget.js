@@ -5,7 +5,7 @@ import {bindActionCreators} from "redux";
 import {getLocationAndWeather} from "../redux/actions/weatherActions";
 import {connect} from "react-redux";
 import {setFontSize} from "../redux/actions/settings";
-
+import { I18n, Trans } from 'react-i18next';
 class SettingsWidget extends React.Component {
     constructor(props) {
         super(props);
@@ -30,20 +30,29 @@ class SettingsWidget extends React.Component {
 
     render() {
         return(
-            <div className="widget settings-widget">
-                <h1>Settings</h1>
-                <div className="weather-settings section">
-                    <h2>Weather</h2>
-                    <p>Current Location: {this.location.lat}, {this.location.long}</p>
-                    <button className="settings-button" onClick={this.props.updateLocation}>Refresh</button>
+          <I18n ns="translations">
+            {
+              (t, { i18n }) => (
+                <div className="widget settings-widget">
+                    <h1>{t('settingstitle')}</h1>
+                    <div className="weather-settings section">
+                        <h2>{t('weather')}</h2>
+                        <p>{t('location')}: {this.location.lat}, {this.location.long}</p>
+                        <button className="settings-button" onClick={this.props.updateLocation}>{t('refresh')}</button>
+                    </div>
+                    <div className={"section"}>
+                        <h2>{t('font')}</h2>
+                        <p style={{fontSize: `${this.state.fontSize}rem`}}>Aa</p>
+                        <input type="range" min="0.5" max="2" step="0.1" value={this.state.fontSize} onChange={this.setFontSize.bind(this)}/>
+                        <button className="font-size-button settings-button" onClick={this.submitFontSize.bind(this)}>{t('set')}</button>
+                        <h2>{t('language')}</h2>
+                        <button className="settings-button" onClick={() => i18n.changeLanguage('fr')}>Français</button>
+                        <button className="settings-button"onClick={() => i18n.changeLanguage('en')}>English</button>
+                    </div>
                 </div>
-                <div className={"section"}>
-                    <h2>Font Size</h2>
-                    <p style={{fontSize: `${this.state.fontSize}rem`}}>Aa</p>
-                    <input type="range" min="0.5" max="2" step="0.1" value={this.state.fontSize} onChange={this.setFontSize.bind(this)}/>
-                    <button className="font-size-button settings-button" onClick={this.submitFontSize.bind(this)}>Set</button>
-                </div>
-            </div>
+              )
+            }
+          </I18n>
         )
     }
 }
