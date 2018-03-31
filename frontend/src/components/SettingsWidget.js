@@ -5,7 +5,7 @@ import {bindActionCreators} from "redux";
 import {getLocationAndWeather} from "../redux/actions/weatherActions";
 import {connect} from "react-redux";
 import {setFontSize} from "../redux/actions/settings";
-import { I18n, Trans } from 'react-i18next';
+import {I18n} from 'react-i18next';
 class SettingsWidget extends React.Component {
     constructor(props) {
         super(props);
