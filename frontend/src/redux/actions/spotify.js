@@ -60,7 +60,7 @@ export function shuffleCheck(authKey, shuffleState) {
           params: {'state': shuffleState},
           method: 'PUT'
       });
-
+      
         dispatch({
             type: FETCH_SHUFFLE,
             payload: promise

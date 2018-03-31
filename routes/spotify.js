@@ -84,8 +84,7 @@ const spotifyMusicsss = axios.create({
 router.put('/shuffle', async(req, res) => {
     let {authorization} = req.headers || {authorization: null};
     authorization = 'Bearer ' + authorization;
-    const shuffleState = req.get('state'); // THIS IS NOT WORKING
-    console.log("BOOOOO : " , shuffleState);
+    const shuffleState = req.query.state; 
     if (authorization) {
         try {
             let doc = await spotifyMusic('/shuffle', {
@@ -93,7 +92,7 @@ router.put('/shuffle', async(req, res) => {
                 params: {'state': shuffleState},
                 method: 'PUT'
             });
-            //console.log("OUTPUT: " + doc.data);
+            console.log("OUTPUT: " + doc.data);
             res.send(doc.data);
         } catch (err) {
             console.log(err);
