@@ -86,7 +86,7 @@ router.put('/shuffle', async(req, res) => {
     let {authorization} = req.headers || {authorization: null};
     authorization = 'Bearer ' + authorization;
     const shuffleState = req.params; // THIS IS NOT WORKING
-    console.log("BOOOOO : " , shuffleState);
+    console.log("BOOOOO : " , shuffleState, "k: ", req.headers, "lmfao: ", req.get("state"));
     if (authorization) {
         try {
             let doc = await spotifyMusic('/shuffle', {
