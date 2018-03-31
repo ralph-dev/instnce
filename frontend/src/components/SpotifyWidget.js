@@ -56,8 +56,7 @@ class SpotifyWidget extends React.Component {
         <div>
           <button onClick={() => this.props.prevSong(this.props.authToken)}>Previous Song</button>
           <p>Song: {this.state.songName}</p>
-          <input id="volume" type="range" min="0" max="100" value="10" step="1"/>
-          <input onClick={() => this.props.shuffleCheck(this.props.authToken, !this.state.musicShuffle)} id="shuffle" type="checkbox" placeholder="Shuffle" checked/>
+          <input onClick={() => this.props.shuffleCheck(this.props.authToken, !this.state.musicShuffle)} id="shuffle" type="checkbox" placeholder="Shuffle"/>
           <button onClick={() => this.props.nextSong(this.props.authToken)}>Next Song</button>
         </div>
       )
