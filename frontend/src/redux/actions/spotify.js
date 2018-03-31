@@ -57,7 +57,7 @@ export function shuffleCheck(authKey, shuffleState) {
     return (dispatch) => {
       let promise =  axios('spotify/shuffle', {
           headers: {'Authorization': authKey},
-          params: {state: shuffleState},
+          params: {'state': shuffleState},
           method: 'PUT'
       });
 

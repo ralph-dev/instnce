@@ -77,24 +77,23 @@ const spotifyMusicsss = axios.create({
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: 'Basic ' + new Buffer(config.SPOTIFY_KEY + ':' + config.SPOTIFY_SECRET).toString('base64')
-    },
-    params: {state: false}
+    }
 });
 
 
 router.put('/shuffle', async(req, res) => {
     let {authorization} = req.headers || {authorization: null};
     authorization = 'Bearer ' + authorization;
-    const shuffleState = req.params; // THIS IS NOT WORKING
-    console.log("BOOOOO : " , shuffleState, "k: ", req.headers, "lmfao: ", req.get("state"));
+    const shuffleState = req.get('state'); // THIS IS NOT WORKING
+    console.log("BOOOOO : " , shuffleState);
     if (authorization) {
         try {
             let doc = await spotifyMusic('/shuffle', {
                 headers: {'Authorization': authorization},
-                params: {state: shuffleState},
+                params: {'state': shuffleState},
                 method: 'PUT'
             });
-            console.log("OUTPUT: " + doc.data);
+            //console.log("OUTPUT: " + doc.data);
             res.send(doc.data);
         } catch (err) {
             console.log(err);
