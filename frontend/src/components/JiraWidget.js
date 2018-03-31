@@ -1,8 +1,11 @@
 import React from 'react';
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {jiraLogin} from "../redux/actions/jira";
+
+import {getIssues, jiraLogin} from "../redux/actions/jira";
+import LoadingIcon from "./LoadingIcon";
 import { I18n, Trans } from 'react-i18next';
+
 
 // URL: https://wolfbeacon.atlassian.net
 // URL of Instnce: https://wolfbeacon.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=IN&selectedIssue=IN-10
@@ -15,6 +18,12 @@ class JiraWidget extends React.Component {
             url: "",
             username: "",
             password: ""
+        }
+    }
+
+    componentWillMount() {
+        if (this.props.auth) {
+            this.props.getIssues(this.props.auth);
         }
     }
 
@@ -41,13 +50,14 @@ class JiraWidget extends React.Component {
 
     submitClicked(e) {
         e.preventDefault();
-
-
+        this.props.jiraLogin(this.state);
     }
 
     render() {
-        return (
-          <I18n ns="translations">
+
+        if (!this.props.auth) {
+            return (
+              <I18n ns="translations">
             {
               (t, { i18n }) => (
                 <form className="widget" onSubmit={this.submitClicked.bind(this)}>
@@ -59,15 +69,31 @@ class JiraWidget extends React.Component {
               )
             }
           </I18n>
-        )
+            )
+        } else if (this.props.issues) {
+            return (<div className="widget">
+                {this.props.issues.map(issue => <h1 key={issue.id}>{issue.key}-{issue.fields.summary}</h1>)}
+            </div>)
+        } else {
+            return (
+            <div className="widget">
+                <LoadingIcon width={100} height={100} color={"#4c8fc3"}/>
+                <h5 className="subheading">Loading Jira</h5>
+            </div>
+            )
+        }
     }
 }
 
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    auth: state.jira.auth,
+    issues: state.jira.issues
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    jiraLogin
+    jiraLogin,
+    getIssues
 }, dispatch);
 
 

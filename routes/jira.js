@@ -14,7 +14,6 @@ const jiraMiddleware = (req, res, next) => {
     } else if (!baseURL) {
         res.status(404).send("Could not find endpoint baseURL");
     } else {
-        console.log(baseURL);
         req.api = axios.create({
             baseURL: `${baseURL}/rest/api/2/`,
             auth : {
@@ -59,8 +58,6 @@ router.get('/issues', async (req, res) => {
                 fields: 'summary'
             }
         });
-        // console.log(api);
-        console.log(jiraRes.data);
         res.send(jiraRes.data);
     } catch (err) {
         console.log(err);

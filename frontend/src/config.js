@@ -4,6 +4,7 @@ export default {
     SPOTIFY_KEY: "086698f2264e46d0b8707062491f198f",
     SPOTIFY_ACCESS_LOCAL_STORE_KEY: "spotifyAccessToken",
     SPOTIFY_REFRESH_LOCAL_STORE_KEY: "spotifyRefresh",
+    JIRA_AUTH_LOCAL_STORE_KEY: "jiraAuth",
     LOCATION_LOCAL_STORE_KEY: "location",
     WEATHER_LOCAL_STORE_KEY: "weather",
     FONT_SIZE_LOCAL_STORE_KEY: "font-size"
