@@ -17,5 +17,5 @@ const store = createStore(indexReducer, applyMiddleware(promiseMiddleware, Redux
 ReactDOM.render(
     <Provider store={store}>
         <Dashboard/>
-    </Provider>, document.getElementById('root'));
-registerServiceWorker();
+    </Provider>, document.getElementById('root')
+);

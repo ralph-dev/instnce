@@ -60,7 +60,6 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 // injected into the application via DefinePlugin in Webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
 const endpoint =  "http://localhost:8080";
-// const endpoint = "http://localhost:8080";
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
