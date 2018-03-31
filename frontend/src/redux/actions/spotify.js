@@ -4,12 +4,13 @@ export const FETCH_CURRENT_SONG = 'FETCH_CURRENT_SONG';
 export const FETCH_NEXT_SONG = 'FETCH_NEXT_SONG';
 export const FETCH_PREVIOUS_SONG = 'FETCH_PREVIOUS_SONG';
 export const FETCH_SHUFFLE = 'FETCH_SHUFFLE';
+export const FETCH_SAVE_SONG = 'FETCH_SAVE_SONG';
 
 
 export function currentlyPlaying(authKey) {
     console.log("Auth", authKey);
     return (dispatch) => {
-      let promise =  axios('spotify/currently-playing', {
+      let promise =  axios('spotify/player/currently-playing', {
           headers: {'Authorization': authKey},
           method: 'GET'
       });
@@ -24,7 +25,7 @@ export function currentlyPlaying(authKey) {
 export function nextSong(authKey) {
     console.log("AuthorizationKey", authKey);
     return (dispatch) => {
-      let promise =  axios('spotify/next', {
+      let promise =  axios('spotify/player/next', {
           headers: {'Authorization': authKey},
           method: 'POST'
       });
@@ -39,7 +40,7 @@ export function nextSong(authKey) {
 export function prevSong(authKey) {
     console.log("Auth", authKey);
     return (dispatch) => {
-      let promise =  axios('spotify/previous', {
+      let promise =  axios('spotify/player/previous', {
           headers: {'Authorization': authKey},
           method: 'POST'
       });
@@ -51,16 +52,33 @@ export function prevSong(authKey) {
     }
 }
 
+export function saveSong(authKey, songId) {
+    console.log("Auth", authKey);
+    console.log(songId);
+    return (dispatch) => {
+      let promise =  axios('spotify/tracks', {
+          headers: {'Authorization': authKey, 'Content-Type': 'application/json'},
+          params: {'ids': songId},
+          method: 'PUT'
+      });
+
+        dispatch({
+            type: FETCH_SAVE_SONG,
+            payload: promise
+        })
+    }
+}
+
 export function shuffleCheck(authKey, shuffleState) {
     console.log("Auth", authKey);
     console.log(shuffleState);
     return (dispatch) => {
-      let promise =  axios('spotify/shuffle', {
+      let promise =  axios('spotify/player/shuffle', {
           headers: {'Authorization': authKey},
           params: {'state': shuffleState},
           method: 'PUT'
       });
-      
+
         dispatch({
             type: FETCH_SHUFFLE,
             payload: promise
