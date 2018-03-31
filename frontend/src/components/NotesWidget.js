@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { I18n, Trans } from 'react-i18next';
 
 class Notes extends Component {
 
@@ -54,18 +55,24 @@ class Notes extends Component {
       );
     });
     return (
-      <div className="widget notes">
-        <form onSubmit={this.addNote}>
-        <h1>Notes</h1>
-        <label>
-          <input className="field" type="text" value={this.state.currentNote} onChange={this.handleNote}/>
-        </label>
-        </form>
-        <button className="clear" onClick={this.deleteNotes}>Clear All</button>
-        <div className="list" ref="list">
-          <ul>{display}</ul>
-        </div>
-      </div>
+      <I18n ns="translations">
+        {
+          (t, { i18n }) => (
+            <div className="widget notes">
+              <form onSubmit={this.addNote}>
+              <h1>{t('notestitle')}</h1>
+              <label>
+                <input className="field" type="text" value={this.state.currentNote} onChange={this.handleNote}/>
+              </label>
+              </form>
+              <button className="clear" onClick={this.deleteNotes}>{t('clearbutton')}</button>
+              <div className="list" ref="list">
+                <ul>{display}</ul>
+              </div>
+            </div>
+          )
+        }
+      </I18n>
     );
   }
 

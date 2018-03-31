@@ -11,7 +11,7 @@ import fog from '../media/weather-icons/Fog.svg';
 import cloudy from '../media/weather-icons/Cloudy.svg';
 import partlyCloudyDay from '../media/weather-icons/PartlyCloudyDay.svg';
 import partlyCloudyNight from '../media/weather-icons/PartlyCloudyNight.svg';
-
+import { I18n, Trans } from 'react-i18next';
 
 import {getLocationAndWeather} from "../redux/actions/weatherActions";
 import LoadingIcon from "./LoadingIcon";
@@ -37,16 +37,30 @@ class Weather extends Component {
     render() {
         if (this.props.error) {
             return (
-            <div className="weather widget">
-                <h1 className="error-icon">!</h1>
-                <h5 className="subheading">Could Not Get Weather</h5>
-            </div>);
+              <I18n ns="translations">
+                {
+                  (t, { i18n }) => (
+                    <div className="weather widget">
+                        <h1 className="error-icon">!</h1>
+                        <h5 className="subheading">{t('weathererror')}</h5>
+                    </div>
+                  )
+                }
+              </I18n>
+            );
         } else if(this.props.currently === null || this.props.daily === null) {
             return (
-            <div className="weather widget">
-                <LoadingIcon width={100} height={100} color={"#4c8fc3"}/>
-                <h5 className="subheading">Loading Weather</h5>
-            </div>);
+            <I18n ns="translations">
+              {
+                (t, { i18n }) => (
+                  <div className="weather widget">
+                      <LoadingIcon width={100} height={100} color={"#4c8fc3"}/>
+                      <h5 className="subheading">{t('loading')}</h5>
+                  </div>
+                )
+              }
+            </I18n>
+          );
         } else {
             return (
                 <div className="weather widget">

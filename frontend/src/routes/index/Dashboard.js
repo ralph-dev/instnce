@@ -11,6 +11,7 @@ import Credits from "../../components/Credits"
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {spotifyLogin, spotifyRefresh} from "../../redux/actions/auth";
+import '../../components/i18n';
 
 export const HOME = "HOME";
 export const GITHUB = "GITHUB";
