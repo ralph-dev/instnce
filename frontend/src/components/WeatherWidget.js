@@ -11,7 +11,7 @@ import fog from '../media/weather-icons/Fog.svg';
 import cloudy from '../media/weather-icons/Cloudy.svg';
 import partlyCloudyDay from '../media/weather-icons/PartlyCloudyDay.svg';
 import partlyCloudyNight from '../media/weather-icons/PartlyCloudyNight.svg';
-import { I18n, Trans } from 'react-i18next';
+import {I18n} from 'react-i18next';
 
 import {getLocationAndWeather} from "../redux/actions/weatherActions";
 import LoadingIcon from "./LoadingIcon";

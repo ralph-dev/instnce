@@ -1,6 +1,6 @@
 import React from 'react';
 import Clock from 'react-live-clock';
-import { I18n, Trans } from 'react-i18next';
+import {I18n} from 'react-i18next';
 
 const TimeWidget = () =>
   <I18n ns="translations">

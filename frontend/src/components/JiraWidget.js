@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 import {getIssues, jiraLogin} from "../redux/actions/jira";
 import LoadingIcon from "./LoadingIcon";
-import { I18n, Trans } from 'react-i18next';
+import {I18n} from 'react-i18next';
 
 
 // URL: https://wolfbeacon.atlassian.net
