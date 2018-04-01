@@ -8,6 +8,7 @@ import axios from "../networking/axios";
 import config from "../config";
 import {Icon} from "react-icons-kit";
 import {currentlyPlaying, nextSong, prevSong, saveSong, shuffleCheck} from "../redux/actions/spotify";
+import {I18n} from 'react-i18next';
 
 class SpotifyWidget extends React.Component {
   constructor(props) {
@@ -63,13 +64,19 @@ class SpotifyWidget extends React.Component {
       )
     } else {
       return (
-        <div>
-          <button onClick={() => this.props.prevSong(this.props.authToken)}>Previous Song</button>
-          <button onClick={() => this.props.saveSong(this.props.authToken, this.state.songId)}>Save Song</button>
-          <p>Song: {this.state.songName}</p>
-          <input onClick={() => this.props.shuffleCheck(this.props.authToken, !this.state.musicShuffle)} id="shuffle" type="checkbox" placeholder="Shuffle"/>
-          <button onClick={() => this.props.nextSong(this.props.authToken)}>Next Song</button>
-        </div>
+        <I18n ns="translations">
+            {
+              (t, { i18n }) => (
+                <div className="widget">
+                  <p>{t('song')}: {this.state.songName}</p>
+                  <button className="sp-button" onClick={() => this.props.prevSong(this.props.authToken)}>{t('previoussong')}</button>
+                  <button className="sp-button" onClick={() => this.props.nextSong(this.props.authToken)}>{t('nextsong')}</button>
+                  <button className="sp-button" onClick={() => this.props.saveSong(this.props.authToken, this.state.songId)}>{t('savesong')}</button>
+                  <label>{t('shuffle')}<input onClick={() => this.props.shuffleCheck(this.props.authToken, !this.state.musicShuffle)} id="shuffle" type="checkbox" placeholder="Shuffle"/></label>
+                </div>
+              )
+            }
+          </I18n>
       )
     }
   }

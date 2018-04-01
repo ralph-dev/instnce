@@ -61,10 +61,10 @@ class JiraWidget extends React.Component {
             {
               (t, { i18n }) => (
                 <form className="widget" onSubmit={this.submitClicked.bind(this)}>
-                    <input type="url" placeholder="Url" name="jira-url" value={this.state.url} onChange={this.urlChanged.bind(this)}/>
-                    <input type="text" name="name" placeholder={t('username')} value={this.state.username} onChange={this.usernameChanged.bind(this)}/>
-                    <input type="password" name="password" placeholder={t('password')} value={this.state.password} onChange={this.passwordChanged.bind(this)}/>
-                    <input type="submit" value={t('set')}/>
+                    <input className="login" type="url" placeholder="Url" name="jira-url" value={this.state.url} onChange={this.urlChanged.bind(this)}/>
+                    <input className="login" type="text" name="name" placeholder={t('username')} value={this.state.username} onChange={this.usernameChanged.bind(this)}/>
+                    <input className="login" type="password" name="password" placeholder={t('password')} value={this.state.password} onChange={this.passwordChanged.bind(this)}/>
+                    <input className="submit" type="submit" value={t('login')}/>
                 </form>
               )
             }

@@ -31,7 +31,13 @@ i18n
           "loading" : "Loading Weather...",
           "username": "Username",
           "password": "Password",
-          "links": "Links"
+          "links": "Links",
+          "login": "Login",
+          "previoussong": "Previous Song",
+          "nextsong": "Next Song",
+          "savesong": "Save Song",
+          "song": "Song",
+          "shuffle": "Shuffle "
         }
       },
       fr:{
@@ -49,9 +55,15 @@ i18n
           "weathererror": "Impossible d'obtenir la météo",
           "time": "HH [h] mm",
           "loading": "Chargement en cours, veuillez patienter... ",
-          "username": "	Nom d'utilisateur",
+          "username": "Nom d'utilisateur",
           "password": "Mot de passe",
-          "links": "Liens"
+          "links": "Liens",
+          "login": "S'identifier",
+          "previoussong": "Chanson Précédente",
+          "nextsong": "Chanson Suivante",
+          "savesong": "Enregistrer",
+          "song": "Chanson",
+          "shuffle": "Mélanger "
         }
       }
     },
