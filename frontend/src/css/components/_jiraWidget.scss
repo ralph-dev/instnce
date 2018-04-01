@@ -23,3 +23,21 @@
 .settings-widget .font-size-button  {
   margin-left: 10px;
 }
+ .widget .submit{
+  color: white;
+  background-color: $login-green-bright;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.widget .login{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  margin-right: 3px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
