@@ -20,10 +20,11 @@
   border-radius: 5px;
 }
 
-.settings-widget .font-size-button  {
+.settings-widget .font-size-button {
   margin-left: 10px;
 }
-.sp-button{
+
+.sp-button {
  color: white;
  background-color: $login-green-bright;
  border: none;
@@ -41,10 +42,10 @@
   width: 40%;
   height: 40%;
   margin: 2%;
+  transition: 1s ease-in-out;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .songImg:hover {
-  transition: 1s ease-in-out;
   transform: scale(1.1);
 }

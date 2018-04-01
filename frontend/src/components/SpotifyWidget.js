@@ -18,7 +18,8 @@ class SpotifyWidget extends React.Component {
       musicShuffle: true,
       songName: "Unknown",
       songId: "Unknown",
-      songImg: "Unknown"
+      songImg: "Unknown",
+      songArtist: "Unknown"
     };
     this.updateDetails = this.updateDetails.bind(this);
     this.updateToken = this.updateToken.bind(this);
@@ -38,6 +39,7 @@ class SpotifyWidget extends React.Component {
         this.setState({songName: this.props.song});
         this.setState({songId: this.props.songId});
         this.setState({songImg: this.props.songImg});
+        this.setState({songArtist: this.props.songArtist});
     }
   }
 
@@ -72,7 +74,8 @@ class SpotifyWidget extends React.Component {
               <div className="widget">
                 <div>
                   <img className="songImg" src={this.state.songImg}/>
-                  <p>{t('song')}: {this.state.songName}</p>
+                  <p><b>{t('song')}: </b><i>{this.state.songName}</i></p>
+                  <p><b>{t('artist')}: </b><i>{this.state.songArtist}</i></p>
                 </div>
                 <div>
                   <button className="sp-button" onClick={() => this.props.prevSong(this.props.authToken)}>{t('previoussong')}</button>
@@ -98,7 +101,8 @@ const mapStateToProps = state => ({
   error: state.spotify.error,
   song: state.spotify.song,
   songId: state.spotify.songId,
-  songImg: state.spotify.songImg
+  songImg: state.spotify.songImg,
+  songArtist: state.spotify.songArtist
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

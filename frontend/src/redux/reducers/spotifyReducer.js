@@ -15,7 +15,11 @@ export default function (state = default_state, action) {
         case SPOTIFY_ACCESS_TOKEN:
             return {...state, spotifyToken: action.payload};
         case FETCH_CURRENT_SONG:
-            return {...state, song: action.payload.data.item.name, songId: action.payload.data.item.id, songImg: action.payload.data.item.album.images[0].url};
+            return {...state,
+              song: action.payload.data.item.name,
+              songId: action.payload.data.item.id,
+              songImg: action.payload.data.item.album.images[0].url,
+              songArtist: action.payload.data.item.artists[0].name};
         case FETCH_NEXT_SONG:
             return {...state};
         case FETCH_PREVIOUS_SONG:

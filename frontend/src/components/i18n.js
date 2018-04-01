@@ -37,6 +37,7 @@ i18n
           "nextsong": "Next Song",
           "savesong": "Save Song",
           "song": "Song",
+          "artist": "Artist",
           "shuffle": "Shuffle "
         }
       },
@@ -63,6 +64,7 @@ i18n
           "nextsong": "Chanson Suivante",
           "savesong": "Enregistrer",
           "song": "Chanson",
+          "artist": "Artiste",
           "shuffle": "Mélanger "
         }
       }
