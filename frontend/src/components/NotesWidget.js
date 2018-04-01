@@ -36,7 +36,7 @@ class Notes extends Component {
   }
   deleteNotes(){
     this.setState({noteList: []});
-    localStorage.clear();
+    localStorage.setItem("notes", JSON.stringify([]));
   }
   deleteNote(content){
     var myNote = this.state.noteList.slice();

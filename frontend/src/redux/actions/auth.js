@@ -46,7 +46,6 @@ export function githubLogin() {
 
         chrome.identity.launchWebAuthFlow({'url': fullURL, 'interactive': true}, async function (redirectUrl) {
             if (redirectUrl) {
-                console.log('launchWebAuthFlow login successful: ', redirectUrl);
                 let parsed = qs.parse(qs.extract(redirectUrl));
                 const code = parsed.code;
                 let doc = await axios.post('/auth/github', {code: code});
@@ -85,7 +84,6 @@ export function spotifyLogin() {
 
         chrome.identity.launchWebAuthFlow({'url': fullURL, 'interactive': true}, async function (redirectUrl) {
             if (redirectUrl) {
-                console.log('launchWebAuthFlow login successful: ', redirectUrl);
                 let parsed = qs.parse(qs.extract(redirectUrl));
                 const code = parsed.code;
                 let doc = await axios.post('/auth/spotify', {code: code});
