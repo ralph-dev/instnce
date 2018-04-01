@@ -18,7 +18,6 @@ export default function (state = default_state, action) {
         case GITHUB_LOADING:
             return {...state, loading: true};
         case REPO_SELECTED:
-            console.log(action.payload);
             return {...state, repo: action.payload};
         case FETCH_PRS:
             return {...state, loading: false,  error: (action.error), repo: (action.payload.data)};
