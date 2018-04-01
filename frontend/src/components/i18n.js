@@ -67,7 +67,7 @@ i18n
         }
       }
     },
-    debug: true,
+    debug: false,
 
     interpolation: {
       escapeValue: false, // not needed for react!!
