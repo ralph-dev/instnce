@@ -17,11 +17,12 @@ class SpotifyWidget extends React.Component {
       musicState: "Paused",
       musicShuffle: true,
       songName: "Unknown",
-      songId: "Unknown"
+      songId: "Unknown",
+      songImg: "Unknown"
     };
     this.updateDetails = this.updateDetails.bind(this);
     this.updateToken = this.updateToken.bind(this);
-    setInterval(() => this.updateDetails(), 500);
+    setInterval(() => this.updateDetails(), 250);
     // 3500000, represents token expiration date
     setInterval(() => this.updateToken(), 3500000);
     this.updateToken();
@@ -36,6 +37,7 @@ class SpotifyWidget extends React.Component {
         this.props.currentlyPlaying(this.props.authToken);
         this.setState({songName: this.props.song});
         this.setState({songId: this.props.songId});
+        this.setState({songImg: this.props.songImg});
     }
   }
 
@@ -65,18 +67,25 @@ class SpotifyWidget extends React.Component {
     } else {
       return (
         <I18n ns="translations">
-            {
-              (t, { i18n }) => (
-                <div className="widget">
+          {
+            (t, { i18n }) => (
+              <div className="widget">
+                <div>
+                  <img className="songImg" src={this.state.songImg}/>
                   <p>{t('song')}: {this.state.songName}</p>
+                </div>
+                <div>
                   <button className="sp-button" onClick={() => this.props.prevSong(this.props.authToken)}>{t('previoussong')}</button>
-                  <button className="sp-button" onClick={() => this.props.nextSong(this.props.authToken)}>{t('nextsong')}</button>
                   <button className="sp-button" onClick={() => this.props.saveSong(this.props.authToken, this.state.songId)}>{t('savesong')}</button>
+                  <button className="sp-button" onClick={() => this.props.nextSong(this.props.authToken)}>{t('nextsong')}</button>
+                </div>
+                <div className="options">
                   <label>{t('shuffle')}<input onClick={() => this.props.shuffleCheck(this.props.authToken, !this.state.musicShuffle)} id="shuffle" type="checkbox" placeholder="Shuffle"/></label>
                 </div>
-              )
-            }
-          </I18n>
+              </div>
+            )
+          }
+        </I18n>
       )
     }
   }
@@ -88,7 +97,8 @@ const mapStateToProps = state => ({
   loading: state.spotify.loading,
   error: state.spotify.error,
   song: state.spotify.song,
-  songId: state.spotify.songId
+  songId: state.spotify.songId,
+  songImg: state.spotify.songImg
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
