@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { spotifyLogin } from "../redux/actions/auth";
+import { spotifyLogin, spotifyRefresh } from "../redux/actions/auth";
 import { spotify } from 'react-icons-kit/fa/';
 import LoadingIcon from "./LoadingIcon";
 import axios from "../networking/axios";
@@ -18,11 +18,19 @@ class SpotifyWidget extends React.Component {
       songName: "Unknown",
       songId: "Unknown"
     };
-    this.tick = this.tick.bind(this);
-    setInterval(() => this.tick(), 500);
+    this.updateDetails = this.updateDetails.bind(this);
+    this.updateToken = this.updateToken.bind(this);
+    setInterval(() => this.updateDetails(), 500);
+    // 3500000, represents token expiration date
+    setInterval(() => this.updateToken(), 3500000);
+    this.updateToken();
   }
 
-  tick() {
+  updateToken() {
+    this.props.spotifyRefresh;
+  }
+
+  updateDetails() {
     if (this.props.authToken) {
         this.props.currentlyPlaying(this.props.authToken);
         this.setState({songName: this.props.song});
@@ -78,6 +86,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   spotifyLogin,
+  spotifyRefresh,
   currentlyPlaying,
   nextSong,
   prevSong,

@@ -5,7 +5,7 @@ const config = require('../config');
 const router = express.Router();
 
 const spotifyMusic = axios.create({
-    baseURL: 'https://api.spotify.com/v1/me/',
+    baseURL: 'https://api.spotify.com/v1/me',
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: 'Basic ' + new Buffer(config.SPOTIFY_KEY + ':' + config.SPOTIFY_SECRET).toString('base64')
