@@ -1,7 +1,7 @@
 {
   "short_name": "instce",
   "name": "instce",
-  "description": "Currently replaces new tab with 'Hello World!'",
+  "description": "View your Jira tickets, Github pull requests, and other developer needs in the new tab page.",
   "version": "0.1",
   "manifest_version": 2,
   "chrome_url_overrides": {
