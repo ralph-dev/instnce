@@ -25,7 +25,6 @@ export function jiraLogin({url, username, password}) {
                 payload: auth
             });
         } catch (err) {
-            console.log(err);
             dispatch({
                 type: JIRA_LOGIN_FAILURE
             })

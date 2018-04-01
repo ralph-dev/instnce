@@ -65,7 +65,6 @@ export function saveSong(authKey, songId) {
 }
 
 export function shuffleCheck(authKey, shuffleState) {
-    console.log(shuffleState);
     return (dispatch) => {
       let promise =  axios('spotify/player/shuffle', {
           headers: {'Authorization': authKey},
