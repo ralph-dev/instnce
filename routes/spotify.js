@@ -21,7 +21,7 @@ router.get('/player/currently-playing', async(req, res) => {
                 headers: {'Authorization': authorization},
                 method: 'GET'
             });
-            console.log("OUTPUT: " + doc.data);
+            console.log(doc.data);
             res.send(doc.data);
         } catch (err) {
             console.log(err);
