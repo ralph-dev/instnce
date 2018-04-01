@@ -8,7 +8,6 @@ export const FETCH_SAVE_SONG = 'FETCH_SAVE_SONG';
 
 
 export function currentlyPlaying(authKey) {
-    console.log("Auth", authKey);
     return (dispatch) => {
       let promise =  axios('spotify/player/currently-playing', {
           headers: {'Authorization': authKey},
@@ -23,7 +22,6 @@ export function currentlyPlaying(authKey) {
 }
 
 export function nextSong(authKey) {
-    console.log("AuthorizationKey", authKey);
     return (dispatch) => {
       let promise =  axios('spotify/player/next', {
           headers: {'Authorization': authKey},
@@ -38,7 +36,6 @@ export function nextSong(authKey) {
 }
 
 export function prevSong(authKey) {
-    console.log("Auth", authKey);
     return (dispatch) => {
       let promise =  axios('spotify/player/previous', {
           headers: {'Authorization': authKey},
@@ -53,8 +50,6 @@ export function prevSong(authKey) {
 }
 
 export function saveSong(authKey, songId) {
-    console.log("Auth", authKey);
-    console.log(songId);
     return (dispatch) => {
       let promise =  axios('spotify/tracks', {
           headers: {'Authorization': authKey, 'Content-Type': 'application/json'},
@@ -70,7 +65,6 @@ export function saveSong(authKey, songId) {
 }
 
 export function shuffleCheck(authKey, shuffleState) {
-    console.log("Auth", authKey);
     console.log(shuffleState);
     return (dispatch) => {
       let promise =  axios('spotify/player/shuffle', {
