@@ -14,7 +14,7 @@ app.use(cors({
         callback(null, true);
     }, credentials : true
 }));
-// app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+
 
 // routes
 const auth = require('./routes/auth');
