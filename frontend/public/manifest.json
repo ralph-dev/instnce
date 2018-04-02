@@ -2,7 +2,7 @@
   "short_name": "instnce",
   "name": "instnce",
   "description": "View your Jira tickets, Github pull requests, and other developer needs in the new tab page.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "manifest_version": 2,
   "chrome_url_overrides": {
     "newtab": "index.html"
