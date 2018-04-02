@@ -1,6 +1,6 @@
 # Instnce - Final Submission
 
-###### Direct Application Url: https://chrome.google.com/webstore/detail/instnce/fhklfbgpmalnjmihaghigbpgopkmdhfi
+###### Direct Application Url(Mark This Url!): https://chrome.google.com/webstore/detail/instnce/fhklfbgpmalnjmihaghigbpgopkmdhfi
 ###### Url: https://github.com/nafees-rawji/instnce  or  www.instnce.com
 
 ### Project Title: Instnce
