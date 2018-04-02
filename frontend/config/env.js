@@ -58,8 +58,9 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
+// https://instnce.azurewebsites.net
 const REACT_APP = /^REACT_APP_/i;
-const endpoint =  "http://localhost:8080";
+const endpoint =  "https://instnce.azurewebsites.net";
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
