@@ -90,7 +90,6 @@ export function spotifyLogin() {
                 lscache.set(config.SPOTIFY_ACCESS_LOCAL_STORE_KEY, doc.data.access_token, 59);
                 lscache.set(config.SPOTIFY_REFRESH_LOCAL_STORE_KEY, doc.data.refresh_token);
                 dispatch(gotSpotifyAccessToken(doc.data.access_token));
-                //todo handle spotify login
             } else {
                 console.error("Spotify Login Failed");
                 // todo handle login faliure

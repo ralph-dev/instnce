@@ -55,7 +55,7 @@ router.post('/spotify', async(req, res) => {
                 params: {
                     client_id: config.SPOTIFY_KEY,
                     client_secret: config.SPOTIFY_SECRET,
-                    redirect_uri: "https://mololcchenifnjaefpnohmphkkdkhjnh.chromiumapp.org/oauth2",
+                    redirect_uri: "https://fhklfbgpmalnjmihaghigbpgopkmdhfi.chromiumapp.org/oauth2",
                     grant_type: "authorization_code",
                     code: code
                 }
