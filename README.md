@@ -1,5 +1,6 @@
 # Instnce - Final Submission
 
+###### Direct Application Url: https://chrome.google.com/webstore/detail/instnce/fhklfbgpmalnjmihaghigbpgopkmdhfi
 ###### Url: https://github.com/nafees-rawji/instnce  or  www.instnce.com
 
 ### Project Title: Instnce
@@ -36,4 +37,4 @@ Top 5 Technical Challenges:
 1. Learning React (First Time!)
 2. Learning Redux (First Time!)
 3. Integerating with several apis (First Time!)
-5. Making into Chrome extenstion as Authentication with OAuth on Extensions is very complicated and requires a server to proxy everything for you.
+5. Making into Chrome extenstion as Authentication with OAuth on Extensions is very complicated and requires a server to proxy everything for you. As well as packaging the whole application and publishing to Chrome Extension Store.
