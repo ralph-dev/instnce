@@ -8,6 +8,7 @@ const default_state = {
     repos: [],
     loading: false,
     repo: null,
+    pulls: null,
     gitHubToken: lscache.get(config.GITHUB_LOCAL_STORE_KEY)
 };
 
@@ -20,7 +21,7 @@ export default function (state = default_state, action) {
         case REPO_SELECTED:
             return {...state, repo: action.payload};
         case FETCH_PRS:
-            return {...state, loading: false,  error: (action.error), repo: (action.payload.data)};
+            return {...state, loading: false,  error: (action.error), pulls: (action.payload.data)};
         case FETCH_REPOS:
             return {...state, repos: state.repos.concat(action.payload.data), error: (action.error), loading: false};
         case GITHUB_ACCESS_TOKEN:

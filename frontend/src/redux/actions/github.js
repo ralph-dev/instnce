@@ -67,5 +67,6 @@ export function clearRepo() {
     return (dispatch) => {
         dispatch(githubFocus(false));
         dispatch(_repoSelected(null));
+        dispatch({type: FETCH_PRS, payload: {data: null}})
     }
 }

@@ -28,6 +28,10 @@ class GitHub extends React.Component {
                 <div id="github-widget" className={"widget"}>
                     <div id="github-nav">
                         <BackButton color={"#ffffff"} width={50} height={50} onClick={this.props.clearRepo} hoverColor={"#000000"}/>
+                        {(this.props.pulls) ? this.props.pulls.map(pr =>
+                            <li className={"github-list-item"} key={pr.id}>
+                                <h3 className="github-list-name">{pr.title}</h3>
+                            </li>): null}
                     </div>
                 </div>
             )
@@ -37,9 +41,9 @@ class GitHub extends React.Component {
                     <ul className={"repo-list"}>
                         <h1 className="title">GitHub</h1>
                         {this.props.repos.map((repo) =>
-                            <li className={"github-repo"}
+                            <li className={"github-list-item"}
                                 key={repo.id} onClick={() => this.props.repoSelected(this.props.gitHubToken, repo)}>
-                                <h3 className="repo-name">{repo.name}</h3>
+                                <h3 className="github-list-name">{repo.name}</h3>
                             </li>)}
                     </ul>
                 </div>
@@ -85,7 +89,8 @@ const mapStateToProps = state => ({
     repos: state.github.repos,
     error: state.github.error,
     repo: state.github.repo,
-    gitHubToken: state.github.gitHubToken
+    gitHubToken: state.github.gitHubToken,
+    pulls: state.github.pulls
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

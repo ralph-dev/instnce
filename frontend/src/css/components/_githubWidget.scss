@@ -47,7 +47,7 @@
   list-style: none;
 }
 
-.github-repo {
+.github-list-item {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -57,11 +57,11 @@
   cursor: pointer;
 }
 
-.github-repo:last-child {
+.github-list-item:last-child {
   border-bottom: none;
 }
 
-.repo-name {
+.github-list-name {
   display: block;
   overflow: hidden;
   padding: 0;
