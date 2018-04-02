@@ -7,7 +7,7 @@ const default_state = {
     error: false,
     song: "Unknown",
     loading: false,
-    spotifyToken: lscache.get(config.GITHUB_LOCAL_STORE_KEY)
+    spotifyToken: lscache.get(config.SPOTIFY_ACCESS_LOCAL_STORE_KEY)
 };
 
 export default function (state = default_state, action) {
