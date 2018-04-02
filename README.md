@@ -1,4 +1,6 @@
-# Instnce
+# Instnce - Final Submission
+
+###### Url: https://github.com/nafees-rawji/instnce  or  www.instnce.com
 
 ### Project Title: Instnce
 
