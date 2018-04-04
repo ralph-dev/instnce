@@ -2,6 +2,7 @@
 
 ###### Direct Application Url(Mark This Url!): https://chrome.google.com/webstore/detail/instnce/fhklfbgpmalnjmihaghigbpgopkmdhfi
 ###### Url: https://www.instnce.com/
+###### Demo Video Url: https://www.youtube.com/watch?v=HvF-9C2weK4&feature=youtu.be
 
 ### Project Title: Instnce
 
