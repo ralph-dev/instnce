@@ -67,7 +67,7 @@ $ curl -X GET
 $ curl -X GET
        -H 'Authorization': authKey, 'Content-Type': 'application/json'
        -d '{"ids": "gnaidhaoignapigenapi"}
-       https://api.spotify.com/v1/me/player/previous
+       https://api.spotify.com/v1/me/player/save
 
 ```
 
