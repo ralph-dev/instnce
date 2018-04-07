@@ -24,40 +24,40 @@ $ curl -X POST
 
 ### Currently playing
 - description: Get the currently playing song
-- request: `GET spotify/player/currently-playing`
+- request: `GET https://api.spotify.com/v1/me/player/currently-playing`
 - response: 200
   - songId: (String) Song currently playing
 
 ```
 $ curl -X GET
        -H "Authorization: authKey"
-       http://localhsot:3000/spotify/player/currently-playing
+       https://api.spotify.com/v1/me/player/currently-playing
 ```
 
 ### Next Song
 - description: Ask to play the next song
-- request: `POST spotify/player/next`
+- request: `POST https://api.spotify.com/v1/me/player/next`
 - response: 200
 
 ```
 $ curl -X GET
        -H "Authorization: authKey"
-       http://localhsot:3000/spotify/player/next
+       https://api.spotify.com/v1/me/player/next
 ```
 
 ### Previous Song
 - description: Ask to play the previous song
-- request: `POST spotify/player/previous`
+- request: `POST https://api.spotify.com/v1/me/player/previous`
 - response: 200
 
 ```
 $ curl -X GET
        -H "Authorization: authKey"
-       http://localhsot:3000/spotify/player/previous
+       https://api.spotify.com/v1/me/player/previous
 ```
 ### Save Song
 - description: Save the current song
-- request: `PUT spotify/player/save`
+- request: `PUT https://api.spotify.com/v1/me/player/save`
 - content-type: `application/json`
   - body: object
     - ids: (string) the song id
@@ -67,13 +67,13 @@ $ curl -X GET
 $ curl -X GET
        -H 'Authorization': authKey, 'Content-Type': 'application/json'
        -d '{"ids": "gnaidhaoignapigenapi"}
-       http://localhsot:3000/spotify/player/previous
+       https://api.spotify.com/v1/me/player/previous
 
 ```
 
 ### Shuffle Check
 - description: Save the current song
-- request: `PUT spotify/player/shuffle`
+- request: `PUT https://api.spotify.com/v1/me/player/shuffle`
 - content-type: `application/json`
   - body: object
     - state: (bool) is shuffle on or off
@@ -83,7 +83,7 @@ $ curl -X GET
 $ curl -X GET
        -H 'Authorization': authKey, 'Content-Type': 'application/json'
        -d '{"state": True}
-       http://localhsot:3000/spotify/player/shuffle
+       https://api.spotify.com/v1/me/player/shuffle
 
 ```
 
