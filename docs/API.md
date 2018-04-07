@@ -109,21 +109,21 @@ $ curl -X GET
 ```
 ### Get repos
 - description: Get the github repos
-- request `GET /github/user/repos`
+- request `GET https://api.github.com/user/repos`
 - response: 200
 
 ```
 $ curl -X GET
        -H 'Authorization': authKey
-       http://localhsot:3000/github/user/repos
+       https://api.github.com/user/repos
 ```
 ### Repo selected
 - description: Get the selected github repo
-- request `GET /github/:url`
+- request `GET https://api.github.com/:url`
 - response: 200
 
 ```
 $ curl -X GET
        -H 'Authorization': authKey
-       http://localhsot:3000/github/:url
+       https://api.github.com/:url
 ```
