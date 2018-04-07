@@ -96,7 +96,7 @@ $ curl -X GET
 ```
 $ curl -X GET
        -H 'Authorization': authKey, 'Content-Type': 'application/json'
-       http://jira/login
+       https://wolfbeacon.atlassian.net/login
 ```
 ### Get issues
 - description: Get the current Jira issues
@@ -106,7 +106,7 @@ $ curl -X GET
 ```
 $ curl -X GET
        -H 'Authorization': auth
-       http://jira/issues
+       https://wolfbeacon.atlassian.net/issues
 ```
 ### Get repos
 - description: Get the github repos
