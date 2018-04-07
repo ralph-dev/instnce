@@ -57,7 +57,7 @@ $ curl -X GET
 ```
 ### Save Song
 - description: Save the current song
-- request: `PUT https://api.spotify.com/v1/me/player/save`
+- request: `PUT https://api.spotify.com/v1/me/tracks`
 - content-type: `application/json`
   - body: object
     - ids: (string) the song id
@@ -67,7 +67,7 @@ $ curl -X GET
 $ curl -X GET
        -H 'Authorization': authKey, 'Content-Type': 'application/json'
        -d '{"ids": "gnaidhaoignapigenapi"}
-       https://api.spotify.com/v1/me/player/save
+       https://api.spotify.com/v1/me/tracks
 
 ```
 
