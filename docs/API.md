@@ -91,21 +91,22 @@ $ curl -X GET
 - description: log into Jira
 - request: `PUT /jira/login`
 - response: 200
+- Note: Replace Jira with your cloud server link
 
 ```
 $ curl -X GET
        -H 'Authorization': authKey, 'Content-Type': 'application/json'
-       http://localhost:3000/jira/login
+       http://jira/login
 ```
 ### Get issues
 - description: Get the current Jira issues
 - request `GET /jira/issues`
 - response: 200
-
+- Note: Replace Jira with your cloud server link
 ```
 $ curl -X GET
        -H 'Authorization': auth
-       http://localhost:3000/jira/issues
+       http://jira/issues
 ```
 ### Get repos
 - description: Get the github repos
