@@ -3,7 +3,7 @@
 ### Weather
 
 - description: Get the current weather
-- request: `GET /weather`
+- request: `GET https://api.darksky.net/forecast/`
     - content-type: `application/json`
     - body: object
       - lat: (float) current latitude
@@ -19,7 +19,7 @@
 $ curl -X POST
        -H "Content-Type: `application/json`"
        -d '{"lat":43.899653199999996,"long":-79.2912593}
-       http://localhsot:3000/weather
+       https://api.darksky.net/forecast/weather
 ```
 
 ### Currently playing
