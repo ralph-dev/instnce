@@ -1,7 +1,7 @@
 import config from "../../config";
 import lscache from "lscache";
 import {SPOTIFY_ACCESS_TOKEN} from "../actions/auth";
-import {FETCH_CURRENT_SONG, FETCH_NEXT_SONG, FETCH_PREVIOUS_SONG, FETCH_SHUFFLE, FETCH_SAVE_SONG} from "../actions/spotify";
+import {FETCH_CURRENT_SONG, FETCH_NEXT_SONG, FETCH_PREVIOUS_SONG, FETCH_SHUFFLE, FETCH_SAVE_SONG, FETCH_PLAYBACK_INFO} from "../actions/spotify";
 
 const default_state = {
     error: false,
@@ -36,6 +36,17 @@ export default function (state = default_state, action) {
             return {...state};
         case FETCH_SAVE_SONG:
             return {...state};
+        case FETCH_PLAYBACK_INFO:
+            if (action.payload.data){
+              return {
+                ...state,
+                shuffle_state: action.payload.data.shuffle_state
+              };
+            } else {
+              return {
+                ...state
+              };
+            }
         default:
             return state;
     }

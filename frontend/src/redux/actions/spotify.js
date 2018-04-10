@@ -5,6 +5,7 @@ export const FETCH_NEXT_SONG = 'FETCH_NEXT_SONG';
 export const FETCH_PREVIOUS_SONG = 'FETCH_PREVIOUS_SONG';
 export const FETCH_SHUFFLE = 'FETCH_SHUFFLE';
 export const FETCH_SAVE_SONG = 'FETCH_SAVE_SONG';
+export const FETCH_PLAYBACK_INFO = 'FETCH_PLAYBACK_INFO';
 
 
 export function currentlyPlaying(authKey) {
@@ -74,6 +75,20 @@ export function shuffleCheck(authKey, shuffleState) {
 
         dispatch({
             type: FETCH_SHUFFLE,
+            payload: promise
+        })
+    }
+}
+
+export function playbackInfo(authKey) {
+    return (dispatch) => {
+      let promise =  axios('spotify/player', {
+          headers: {'Authorization': authKey},
+          method: 'GET'
+      });
+
+        dispatch({
+            type: FETCH_PLAYBACK_INFO,
             payload: promise
         })
     }

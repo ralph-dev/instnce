@@ -7,7 +7,7 @@ import LoadingIcon from "./LoadingIcon";
 import axios from "../networking/axios";
 import config from "../config";
 import {Icon} from "react-icons-kit";
-import {currentlyPlaying, nextSong, prevSong, saveSong, shuffleCheck} from "../redux/actions/spotify";
+import {currentlyPlaying, nextSong, prevSong, saveSong, shuffleCheck, playbackInfo} from "../redux/actions/spotify";
 import {I18n} from 'react-i18next';
 
 class SpotifyWidget extends React.Component {
@@ -21,25 +21,36 @@ class SpotifyWidget extends React.Component {
       songImg: "Unknown",
       songArtist: "Unknown"
     };
-    this.updateDetails = this.updateDetails.bind(this);
+    this.initialDetails = this.initialDetails.bind(this);
+    this.updateDetails = this.updateDetails.bind(this)
     this.updateToken = this.updateToken.bind(this);
     setInterval(() => this.updateDetails(), 250);
     // 3500000, represents token expiration date
     setInterval(() => this.updateToken(), 3500000);
     this.updateToken();
+    this.initialDetails();
   }
 
   updateToken() {
     this.props.spotifyRefresh;
   }
 
+  initialDetails() {
+    if (this.props.authToken) {
+      this.props.playbackInfo(this.props.authToken);
+      this.setState({musicShuffle: this.props.shuffle_state});
+    }
+  }
+
   updateDetails() {
     if (this.props.authToken) {
         this.props.currentlyPlaying(this.props.authToken);
-        this.setState({songName: this.props.song});
-        this.setState({songId: this.props.songId});
-        this.setState({songImg: this.props.songImg});
-        this.setState({songArtist: this.props.songArtist});
+        this.setState(
+          {songName: this.props.song},
+          {songId: this.props.songId},
+          {songImg: this.props.songImg},
+          {songArtist: this.props.songArtist}
+        );
     }
   }
 
@@ -102,7 +113,8 @@ const mapStateToProps = state => ({
   song: state.spotify.song,
   songId: state.spotify.songId,
   songImg: state.spotify.songImg,
-  songArtist: state.spotify.songArtist
+  songArtist: state.spotify.songArtist,
+  shuffle_state: state.spotify.shuffle_state
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -112,7 +124,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   nextSong,
   prevSong,
   saveSong,
-  shuffleCheck
+  shuffleCheck,
+  playbackInfo
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (SpotifyWidget);
