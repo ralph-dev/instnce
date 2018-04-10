@@ -7,7 +7,7 @@ class Notes extends Component {
     super(props);
     this.state = {
       currentNote: "",
-      noteList: [],
+      noteList: []
     };
 
     this.addNote = this.addNote.bind(this);
