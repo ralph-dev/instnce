@@ -20,6 +20,19 @@
     "footer footer";
 }
 
+.trash {
+  background-image: url("../media/icons/trash.svg");
+  background-repeat: no-repeat;
+  border: none;
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+}
+
+.trash:hover {
+  background-image: url("../media/icons/trash-can.png");
+}
+
 .add_note {
   grid-area: footer;
 }

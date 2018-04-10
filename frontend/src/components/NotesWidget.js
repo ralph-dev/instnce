@@ -23,7 +23,9 @@ class Notes extends Component {
   addNote(e) {
     e.preventDefault();
     var myNote = this.state.noteList.slice();
-    if (this.state.currentNote != '') myNote.push(this.state.currentNote);
+    let date = new Date().toDateString()
+    let newNote = {noteTitle: this.state.currentNote, noteDate: date};
+    if (this.state.currentNote != '') myNote.push(newNote);
     localStorage.setItem("notes", JSON.stringify(myNote));
     this.setState({noteList: myNote, currentNote: ""});
   }
@@ -33,8 +35,10 @@ class Notes extends Component {
   }
 
   deleteNotes() {
-    this.setState({noteList: []});
-    localStorage.setItem("notes", JSON.stringify([]));
+    if (window.confirm('This will erase all your notes.')) {
+      this.setState({noteList: []});
+      localStorage.setItem("notes", JSON.stringify([]));
+    }
   }
 
   deleteNote(content) {
@@ -50,7 +54,7 @@ class Notes extends Component {
     const display = nl.map(content => {
       return (
         <li key={content}>
-          <div onClick={() => this.deleteNote(content)}>{content}</div>
+          <div>{content.noteTitle}    <i>{content.noteDate}</i> <button className="trash" title="Delete Note" onClick={() => this.deleteNote(content)}/></div>
         </li>
       );
     });
