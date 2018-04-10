@@ -118,4 +118,25 @@ router.put('/player/shuffle', async(req, res) => {
     }
 });
 
+router.get('/player', async(req, res) => {
+    let {authorization} = req.headers || {authorization: null};
+    authorization = 'Bearer ' + authorization;
+    if (authorization) {
+        try {
+            let doc = await spotifyMusic('/player', {
+                headers: {'Authorization': authorization},
+                method: 'GET'
+            });
+            console.log("OUTPUT: " + doc.data);
+            res.send(doc.data);
+        } catch (err) {
+            console.log(err);
+            res.status(500).send("Could Not Get token")
+        }
+    } else {
+        res.status(422).send("Requires a refreshToken");
+    }
+});
+
+
 module.exports = router;
