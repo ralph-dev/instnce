@@ -60,15 +60,17 @@ class Notes extends Component {
         {
           (t, { i18n }) => (
             <div className="widget notes">
-              <form onSubmit={this.addNote}>
-                <h1>{t('notestitle')}</h1>
-                <label>
-                  <input className="field" type="text" value={this.state.currentNote} onChange={this.handleNote}/>
-                </label>
-              </form>
-              <button className="clear" onClick={this.deleteNotes}>{t('clearbutton')}</button>
-              <div className="list" ref="list">
-                <ul>{display}</ul>
+              <div className="note_grid">
+                <div className="list" ref="list">
+                  <ul>{display}</ul>
+                </div>
+                <form className="add_note" onSubmit={this.addNote}>
+                  <h1>{t('notestitle')}</h1>
+                  <label>
+                    <input className="field" type="text" value={this.state.currentNote} onChange={this.handleNote}/>
+                  </label>
+                </form>
+                <button className="clear" onClick={this.deleteNotes}>{t('clearbutton')}</button>
               </div>
             </div>
           )

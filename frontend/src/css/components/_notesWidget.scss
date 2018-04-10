@@ -7,19 +7,46 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.note_grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 95% 5%;
+  grid-template-rows: 5% 85% 10%;
+  grid-template-areas:
+    "header header"
+    "main main"
+    "footer footer";
+}
+
+.add_note {
+  grid-area: footer;
+}
+
 .notes {
   overflow: scroll;
 }
+
+.clear {
+  grid-area: header;
+}
+
 .notes h1{
   margin-top: 0;
   font-family: 'Mina', 'Montserrat', sans-serif;
 }
+
 .notes ul{
   text-overflow: ellipsis;
 }
+
 .notes .list{
   text-align: left;
+  grid-area: main;
+  overflow: auto;
 }
+
 .notes .field{
   background-color: transparent;
   outline: none;
