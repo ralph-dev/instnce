@@ -24,9 +24,9 @@ class SpotifyWidget extends React.Component {
     this.initialDetails = this.initialDetails.bind(this);
     this.updateDetails = this.updateDetails.bind(this)
     this.updateToken = this.updateToken.bind(this);
-    setInterval(() => this.updateDetails(), 250);
-    // 3500000, represents token expiration date
-    setInterval(() => this.updateToken(), 3500000);
+    // setInterval(() => this.updateDetails(), 250); TODO: THIS CAUSING ERRORS
+    // // 3500000, represents token expiration date
+    // setInterval(() => this.updateToken(), 3500000);
     this.updateToken();
     this.initialDetails();
   }
