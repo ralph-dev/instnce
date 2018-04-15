@@ -9,7 +9,7 @@ export const FETCH_ISSUES = "FETCH_ISSUES";
 export function jiraLogin({url, username, password}) {
     return async (dispatch) => {
         try {
-            let res = await axios('/jira/login', {
+            await axios('/jira/login', {
                 auth: {
                     username: username,
                     password: password
