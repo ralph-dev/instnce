@@ -1,4 +1,5 @@
 import axios from "../../networking/axios";
+import {store} from "../../index";
 
 export const FETCH_CURRENT_SONG = 'FETCH_CURRENT_SONG';
 export const FETCH_NEXT_SONG = 'FETCH_NEXT_SONG';
@@ -7,7 +8,8 @@ export const FETCH_SHUFFLE = 'FETCH_SHUFFLE';
 export const FETCH_SAVE_SONG = 'FETCH_SAVE_SONG';
 
 
-export function currentlyPlaying(authKey) {
+export function currentlyPlaying() {
+    const authKey = store.getState().spotify.spotifyToken;
     return (dispatch) => {
       let promise =  axios('spotify/player/currently-playing', {
           headers: {'Authorization': authKey},
