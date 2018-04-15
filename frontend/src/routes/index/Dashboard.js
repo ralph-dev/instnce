@@ -12,7 +12,8 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {spotifyLogin, spotifyRefresh} from "../../redux/actions/auth";
 import '../../components/i18n';
-import {currentlyPlayingHeartbeat} from "../../components/spotify/Heartbeat";
+import * as heartbeats from "heartbeats";
+import {currentlyPlaying} from "../../redux/actions/spotify";
 
 export const HOME = "HOME";
 export const GITHUB = "GITHUB";
@@ -28,13 +29,16 @@ const Home = () =>
         <TimeWidget/>
     </div>;
 
+
 class Dashboard extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             step: HOME
         };
         this.setOpen = this.setOpen.bind(this);
+        this.heartbeat =  new heartbeats.createHeart(1000);
+        this.heartbeat.createEvent(3600, {}, props.spotifyRefresh)
     }
 
     setOpen(id) {
@@ -52,10 +56,10 @@ class Dashboard extends Component {
           CREDITS: <Credits/>
         };
 
-        if (this.state.step === SPOTIFY) {
-            currentlyPlayingHeartbeat.start();
+        if (this.state.step === SPOTIFY && this.props.authKey) {
+            this.heartbeat.createEvent(1, {name: "currently_playing"}, this.props.currentlyPlaying);
         } else {
-            currentlyPlayingHeartbeat.stop();
+            this.heartbeat.killEvent("currently_playing");
         }
 
         return (
@@ -68,13 +72,15 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-    fontSize: state.settings.fontSize
+    fontSize: state.settings.fontSize,
+    authKey: state.spotify.spotifyToken
 });
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     spotifyLogin,
-    spotifyRefresh
+    spotifyRefresh,
+    currentlyPlaying
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Dashboard);
