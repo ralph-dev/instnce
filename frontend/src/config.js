@@ -1,5 +1,5 @@
 export default {
-    GITHUB_KEY: '0c82753fb997b667da51',
+    GITHUB_KEY: '8ee46b23af465511b7d4',
     GITHUB_LOCAL_STORE_KEY: "githubToken",
     SPOTIFY_KEY: "086698f2264e46d0b8707062491f198f",
     SPOTIFY_ACCESS_LOCAL_STORE_KEY: "spotifyAccessToken",

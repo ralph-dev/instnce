@@ -46,8 +46,10 @@ export function githubLogin() {
 
         chrome.identity.launchWebAuthFlow({'url': fullURL, 'interactive': true}, async function (redirectUrl) {
             if (redirectUrl) {
+                console.log(redirectUrl);
                 let parsed = qs.parse(qs.extract(redirectUrl));
                 const code = parsed.code;
+                console.log(code);
                 let doc = await axios.post('/auth/github', {code: code});
                 lscache.set(config.GITHUB_LOCAL_STORE_KEY, doc.data.access_token);
                 dispatch(gotAccessToken(doc.data.access_token));
@@ -86,7 +88,7 @@ export function spotifyLogin() {
             if (redirectUrl) {
                 let parsed = qs.parse(qs.extract(redirectUrl));
                 const code = parsed.code;
-                let doc = await axios.post('/auth/spotify', {code: code});
+                let doc = await axios.post('/auth/firefox/spotify', {code: code});
                 lscache.set(config.SPOTIFY_ACCESS_LOCAL_STORE_KEY, doc.data.access_token, 59);
                 lscache.set(config.SPOTIFY_REFRESH_LOCAL_STORE_KEY, doc.data.refresh_token);
                 dispatch(gotSpotifyAccessToken(doc.data.access_token));
