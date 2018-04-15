@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Weather from "../../components/WeatherWidget";
 import GitHub from "../../components/github/GitHubWidget";
 import JiraWidget from "../../components/JiraWidget";
-import SpotifyWidget from "../../components/SpotifyWidget";
+import SpotifyWidget from "../../components/spotify/SpotifyWidget";
 import Notes from "../../components/NotesWidget"
 import TimeWidget from "../../components/TimeWidget";
 import QuickLinks from "../../components/quick-links/QuickLinks";
@@ -12,6 +12,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {spotifyLogin, spotifyRefresh} from "../../redux/actions/auth";
 import '../../components/i18n';
+import {currentlyPlayingHeartbeat} from "../../components/spotify/Heartbeat";
 
 export const HOME = "HOME";
 export const GITHUB = "GITHUB";
@@ -50,6 +51,12 @@ class Dashboard extends Component {
           SETTINGS: <SettingsWidget/>,
           CREDITS: <Credits/>
         };
+
+        if (this.state.step === SPOTIFY) {
+            currentlyPlayingHeartbeat.start();
+        } else {
+            currentlyPlayingHeartbeat.stop();
+        }
 
         return (
             <div id="dashboard" style={{fontSize: `${this.props.fontSize}rem`}}>
