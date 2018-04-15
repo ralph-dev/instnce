@@ -31,14 +31,14 @@ const Home = () =>
 
 
 class Dashboard extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             step: HOME
         };
         this.setOpen = this.setOpen.bind(this);
         this.heartbeat =  new heartbeats.createHeart(1000);
-        this.heartbeat.createEvent(3600, {}, this.props.spotifyRefresh)
+        this.heartbeat.createEvent(3600, {}, props.spotifyRefresh)
     }
 
     setOpen(id) {
