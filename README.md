@@ -1,6 +1,7 @@
 # Instnce - Final Submission
 
 ###### Direct Application Url(Mark This Url!): https://chrome.google.com/webstore/detail/instnce/fhklfbgpmalnjmihaghigbpgopkmdhfi
+###### Firefox: https://addons.mozilla.org/en-US/firefox/addon/instnce/?src=search
 ###### Url: https://www.instnce.com/
 ###### Demo Video Url: https://www.youtube.com/watch?v=HvF-9C2weK4&feature=youtu.be
 
